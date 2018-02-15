@@ -1,0 +1,109 @@
+nav {
+	background-color: #ab77f9;
+	color: white;
+
+}
+nav a{
+	color: white;
+}
+nav li{
+	text-align: center;
+}
+.dropdown-menu li{
+	text-align: left;
+
+	color:  #ab77f9;
+	display: block;
+}
+a{
+	text-decoration: none;
+}
+span{
+	background-color: white;
+
+}
+.logo{
+	width: 80%;
+	margin-left: 10%;
+}
+.navbar{
+	background-color: white;
+	float:left; 
+	left:50%;
+	width: 100%;
+}
+.nav-item {
+ float:left;
+ right:50%;
+}
+
+.navbar a{
+	color:  #ab77f9;
+}
+
+.esconder{
+	display: none !important;
+}
+
+@media (max-width: 500px){
+	.navbar{
+		display: none;
+	}
+	.esconder{
+		display: block !important;
+	}
+}
+footer{
+	bottom: 0;
+	display: block;
+	background-color: #ab77f9;
+	color: white;
+	width: 100%;
+	font-size: 15px;
+	text-align: center;
+	height: 20px;
+	position: fixed;
+}
+.galeria {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+}
+@media only screen and (max-width: 1200px){
+    .galeria {
+        width: 33%;
+        margin: 6px 0;
+    }
+}
+@media only screen and (max-width: 940px){
+    .galeria {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 620px){
+    .galeria{
+        width: 100%;
+    }
+}
+.imagen {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 300px;
+}
+
+.imagen:hover {
+    border: 2px solid #ab77f9;
+}
+
+.imagen img {
+    width: 100%;
+    height: auto;
+}
+
+.desc {
+    padding: 15px;
+    text-align: center;
+}
