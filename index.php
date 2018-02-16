@@ -70,7 +70,7 @@
     </div>
 </nav>
 <header>
-  <img src="nombre.jpg" class="logo">
+  <img src="nombre.png" class="logo">
 
 <nav class="menu">
  
@@ -85,10 +85,10 @@
           </a>
           <div class="dropdown-menu">
              <ul>
-                <li><a class="dropdown-item" href="#">Blusas</a></li>
-                <li><a class="dropdown-item" href="#">Vestidos</a></li>
-                <li><a class="dropdown-item" href="#">Pantalones</a></li>
-                <li><a class="dropdown-item" href="#">Faldas</a></li>
+                <li><a href="#">Blusas</a></li>
+                <li><a href="#">Vestidos</a></li>
+                <li><a href="#">Pantalones</a></li>
+                <li><a href="#">Faldas</a></li>
               </ul>
           </div>
         </li>
@@ -106,57 +106,57 @@
           </div>
         </li>
       </ul>
-
 </nav>
+
 </header>
 
 <div class="galeria">
   <div class="articulo">
   <div class="imagen">
       <a href=""> <img src="img/falda.jpg"></a>
-      <div class="desc"><p>Color</p><p>Precio</p></div>
+      <div class="desc"><p>Falda a la cintura negra</p><p>$149.99 MXN</p></div>
   </div>
 </div>
 <div class="articulo">
   <div class="imagen">
       <a href=""><img src="img/lentes4.jpg"></a>
-      <div class="desc"><p>Color</p><p>Precio</p></div>
+      <div class="desc"><p>Lentes de corazon</p><p>$99.99 MXN</p></div>
   </div>
 </div>
 <div class="articulo">
   <div class="imagen">
       <a href=""><img src="img/pantalon3.jpg"> </a>
-      <div class="desc"><p>Color</p><p>Precio</p></div>
+      <div class="desc"><p>Pantalón amarillo-negro</p><p>$189.99 MXN</p></div>
   </div>
 </div>
 <div class="articulo">
   <div class="imagen">
       <a href=""> <img src="img/falda3.jpg"></a>
-      <div class="desc"><p>Color</p><p>Precio</p></div>
+      <div class="desc"><p>Falda cuadros</p><p>$139.99 MXN</p></div>
   </div>
 </div>
 <div class="articulo">
   <div class="imagen">
       <a href=""><img src="img/pantalon4.jpg"></a>
-      <div class="desc"><p>Color</p><p>Precio</p></div>
+      <div class="desc"><p>Pantalón verde-rojo</p><p>$189.99 MXN</p></div>
   </div>
 </div>
 <div class="articulo">
   <div class="imagen">
       <a href=""><img src="img/collar1.jpg"> </a>
-      <div class="desc"><p>Color</p><p>Precio</p></div>
+      <div class="desc"><p>Choker corazón</p><p>$59.99 MXN</p></div>
   </div>
 </div>
 <div class="articulo">
   <div class="imagen">
       <a href=""> <img src="img/blusa2.jpg"></a>
-      <div class="desc"><p>Color</p><p>Precio</p></div>
+      <div class="desc"><p>Blusa blanca con rosas</p><p>$109.99 MXN</p></div>
   </div>
 </div>
 <div class="articulo">
   <div class="imagen">
       <a href=""><img src="img/blusa4.png"></a>
-      <div class="desc"><p>Color</p><p>Precio</p></div>
+      <div class="desc"><p>Blusa negra con girasoles</p><p>$99.99 MXN</p></div>
   </div>
 </div>
 
