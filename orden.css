@@ -22,10 +22,12 @@ span{
 	background-color: white;
 
 }
-
+.header{
+	display: block;
+	text-align: center;
+}
 .logo{
 	width: 80%;
-	margin-left: 10%;
 }
 .menu{
 	background-color: white;
@@ -40,9 +42,9 @@ span{
 }
 
 .nav-item {
- /*float:left;*/
  display: inline-block;
  padding: 6px;
+ position: relative;
 }
 
 .menu a{
@@ -56,6 +58,9 @@ span{
 .menu li:hover{
 	background-color: #f1d1ff;
 }
+.menu .dropdown-menu li:hover{
+	background-color: #f1d1ff;
+	}
 .esconder{
 	display: none !important;
 }
