@@ -1,3 +1,17 @@
+.galeria{
+	text-align: center;
+	margin-left: auto;
+    margin-right: auto;
+    max-width: 1300px;
+}
+.articulo {
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+    width: 24%;
+    text-align: center;
+	display: inline-block;
+}
 nav {
 	background-color: #ab77f9;
 	color: white;
@@ -9,12 +23,13 @@ nav a{
 nav li{
 	text-align: center;
 }
+
 .dropdown-menu li{
 	text-align: left;
-
 	color:  #ab77f9;
 	display: block;
 }
+
 a{
 	text-decoration: none;
 }
@@ -39,7 +54,9 @@ span{
 .menu-lista{
 	position: relative;
 	margin: auto;
+	/*float: left;*/
 }
+
 
 .nav-item {
  display: inline-block;
@@ -84,38 +101,29 @@ footer{
 	height: 20px;
 	position: relative;
 }
-.galeria{
-	text-align: center;
-}
-.articulo {
-    padding: 0 6px;
-    width: 24%;
-    text-align: center;
-
-	display: inline-block;
-}
-@media only screen and (max-width: 1200px){
+@media only screen and (max-width: 1240px){
     .articulo {
         width: 33%;
-        margin: 6px 0;
+    }
+    .galeria{
+    	max-width: 940px;	
     }
 }
 @media only screen and (max-width: 940px){
     .articulo {
         width: 49%;
-        margin: 6px 0;
      }
+    .galeria{
+    	max-width: 640px;
+    }
 }
 
 @media only screen and (max-width: 620px){
     .articulo{
-       
-    	align-content: center;
+    width: 100%;
     }
     .galeria{
-    	display: flex;
-    	flex-flow: column;
-    	justify-content: center;
+    	max-width: 300px;
     }
 }
 .imagen {
@@ -125,7 +133,7 @@ footer{
     display: block;
 }
 
-.imagen:hover {
+.imagen: hover {
     border: 2px solid #ab77f9;
 }
 
