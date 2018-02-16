@@ -69,12 +69,12 @@
         </form>
     </div>
 </nav>
+<header>
+  <img src="nombre.jpg" class="logo">
 
-<img src="nombre.jpg" class="logo">
-
-<nav class="navbar">
+<nav class="menu">
  
-      <ul class="nav navbar-nav">
+      <ul class="menu-lista">
         <li class="nav-item"><a href="#">Inicio</a></li>
         <li class="nav-item">
           <a href="#">Ofertas</a>
@@ -108,53 +108,58 @@
       </ul>
 
 </nav>
+</header>
+
 <div class="galeria">
+  <div class="articulo">
   <div class="imagen">
       <a href=""> <img src="img/falda.jpg"></a>
       <div class="desc"><p>Color</p><p>Precio</p></div>
   </div>
 </div>
-<div class="galeria">
+<div class="articulo">
   <div class="imagen">
       <a href=""><img src="img/lentes4.jpg"></a>
       <div class="desc"><p>Color</p><p>Precio</p></div>
   </div>
 </div>
-<div class="galeria">
+<div class="articulo">
   <div class="imagen">
       <a href=""><img src="img/pantalon3.jpg"> </a>
       <div class="desc"><p>Color</p><p>Precio</p></div>
   </div>
 </div>
-<div class="galeria">
+<div class="articulo">
   <div class="imagen">
       <a href=""> <img src="img/falda3.jpg"></a>
       <div class="desc"><p>Color</p><p>Precio</p></div>
   </div>
 </div>
-<div class="galeria">
+<div class="articulo">
   <div class="imagen">
       <a href=""><img src="img/pantalon4.jpg"></a>
       <div class="desc"><p>Color</p><p>Precio</p></div>
   </div>
 </div>
-<div class="galeria">
+<div class="articulo">
   <div class="imagen">
       <a href=""><img src="img/collar1.jpg"> </a>
       <div class="desc"><p>Color</p><p>Precio</p></div>
   </div>
 </div>
-<div class="galeria">
+<div class="articulo">
   <div class="imagen">
       <a href=""> <img src="img/blusa2.jpg"></a>
       <div class="desc"><p>Color</p><p>Precio</p></div>
   </div>
 </div>
-<div class="galeria">
+<div class="articulo">
   <div class="imagen">
       <a href=""><img src="img/blusa4.png"></a>
       <div class="desc"><p>Color</p><p>Precio</p></div>
   </div>
+</div>
+
 </div>
 
 <footer>
