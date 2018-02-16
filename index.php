@@ -85,10 +85,10 @@
           </a>
           <div class="dropdown-menu">
              <ul>
-                <li><a href="#">Blusas</a></li>
-                <li><a href="#">Vestidos</a></li>
-                <li><a href="#">Pantalones</a></li>
-                <li><a href="#">Faldas</a></li>
+                <li><a class="dropdown-item" href="#">Blusas</a></li>
+                <li><a class="dropdown-item" href="#">Vestidos</a></li>
+                <li><a class="dropdown-item" href="#">Pantalones</a></li>
+                <li><a class="dropdown-item" href="#">Faldas</a></li>
               </ul>
           </div>
         </li>
