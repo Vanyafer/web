@@ -13,12 +13,20 @@
 	display: inline-block;
 }
 nav {
-	background-color: #ab77f9;
+	background-color: #92278f;
 	color: white;
 
 }
 nav a{
 	color: white;
+}
+nav a:hover, nav a:focus {
+    color: #92278f;
+    text-decoration: none;
+
+}
+nav .esconder .dropdown-menu a:hover{
+	color: #ffbffd;
 }
 nav li{
 	text-align: center;
@@ -26,7 +34,7 @@ nav li{
 
 .dropdown-menu li{
 	text-align: left;
-	color:  #ab77f9;
+	color:  #92278f;
 	display: block;
 }
 
@@ -43,6 +51,10 @@ span{
 }
 .logo{
 	width: 80%;
+	margin: auto;
+}
+.logo img{
+	width: 100%;
 }
 .menu{
 	background-color: white;
@@ -65,7 +77,7 @@ span{
 }
 
 .menu a{
-	color:  #ab77f9;
+	color:  #92278f;
 	text-decoration: none;
 	font-size: 17px;
 }
@@ -93,7 +105,7 @@ span{
 footer{
 	bottom: 0;
 	display: block;
-	background-color: #ab77f9;
+	background-color: #92278f;
 	color: white;
 	width: 100%;
 	font-size: 15px;
@@ -133,8 +145,8 @@ footer{
     display: block;
 }
 
-.imagen: hover {
-    border: 2px solid #ab77f9;
+.imagen:hover {
+    border: 2px solid #92278f;
 }
 
 .imagen img {

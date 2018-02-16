@@ -70,8 +70,8 @@
     </div>
 </nav>
 <header>
-  <img src="nombre.png" class="logo">
-
+ <div class="logo"><img src="nombre.png" >
+</div> 
 <nav class="menu">
  
       <ul class="menu-lista">
