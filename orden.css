@@ -159,3 +159,7 @@ footer{
     text-align: center;
     display: block;
 }
+
+#map{
+	height: 500px;
+}
