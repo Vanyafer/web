@@ -3,7 +3,7 @@
 <head>
 	<title>Contacto</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="contacto.css">
+  	<link rel="stylesheet" type="text/css" href="css/contacto.css">
     <script src="js/jquery.min.js"></script>
    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOgXcjv2qNk2QVFTGT263zXjJTrzRq6fA&callback=initMap"
     async defer></script>

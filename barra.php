@@ -4,7 +4,7 @@
   <title></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="barra.css">
+  <link rel="stylesheet" type="text/css" href="css/barra.css">
     <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
 </head>

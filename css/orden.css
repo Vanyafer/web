@@ -15,8 +15,6 @@
     width: 24%;
     text-align: center;
 	display: inline-block;
-	overflow: hidden;
-	z-index: 2;
 
 }
 .header{
@@ -114,7 +112,7 @@ footer{
     border: 1px solid #ccc;
     width: 300px;
     display: block;
-    border-radius:200%;
+    border-radius:100%;
     overflow: hidden;
     box-shadow: 1px 1px 3px #92278f;
 
@@ -126,7 +124,6 @@ footer{
 
 .imagen img {
     width: 100%;
-    overflow: hidden;
 }
 
 .desc {

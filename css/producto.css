@@ -1,0 +1,71 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+}
+.logo{
+	width: 80%;
+	margin: auto;
+}
+.logo img{
+	width: 100%;
+}
+.producto{
+	text-align: center;
+	position: relative;
+	display: block;
+}
+.box{
+	display: inline-block;
+	position: relative;
+	background-color: #eee;
+	border-radius: 5px;
+	width: 400px;
+	height: 400px;
+	margin: 30px;
+	overflow: hidden;
+	box-shadow: 1px 1px 3px #92278f;
+}
+.box img{
+	width: 100%;
+}
+.Nombre{
+	font-size: 30px;
+	padding: 20px;
+}
+.Descripcion{
+	font-size: 20px;
+	padding: 10px;
+}
+.Precio{
+	font-size: 30px;
+	padding: 10px;
+	text-align: left;
+	position: relative;
+}
+.Comprar{
+	margin: 10px;
+	position: relative;
+	width: 40%;
+	bottom: 10px;
+	float: right;
+	background-color: #92278f;
+
+	border-radius: 5px;
+	box-shadow: 1px 1px 3px #92278f; 
+
+}
+.Comprar a{
+	text-decoration: none;
+	color: white;
+
+}
+.Comprar a:hover{
+	text-decoration: none;
+	color: white;
+}
+.Comprar:hover{
+	background-color: #FAAFFF;
+}

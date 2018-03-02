@@ -4,13 +4,13 @@
   <title>MooCouture</title>
   
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="orden.css">
+  <link rel="stylesheet" type="text/css" href="css/orden.css">
     <script src="js/jquery.min.js"></script>
 </head>
 <body  >
 <?php include "barra.php"; ?>
 <header>
- <div class="logo"><img src="nombre.png" >
+ <div class="logo"><img src="img/nombre.png" >
 </div> 
 <nav class="menu">
  
@@ -53,7 +53,7 @@
 <div class="galeria">
   <div class="articulo">
   <div class="imagen">
-      <a href=""> <img src="img/falda.jpg"></a>
+      <a href="producto.php"> <img src="img/falda.jpg"></a>
       <div class="desc"><p>Falda a la cintura negra</p><p>$149.99 MXN</p></div>
   </div>
 </div>
