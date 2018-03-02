@@ -16,12 +16,15 @@ nav .esconder .dropdown-menu a:hover{
 }
 nav li{
 	text-align: center;
+	
 }
 
 .dropdown-menu li{
 	text-align: left;
 	color:  #92278f;
 	display: block;
+	padding-left: 4px;
+	padding: 4px;
 }
 
 a{

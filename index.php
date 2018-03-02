@@ -4,10 +4,8 @@
   <title>MooCouture</title>
   
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="orden.css">
     <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
 </head>
 <body  >
 <?php include "barra.php"; ?>
@@ -107,7 +105,7 @@
 </div>
 
 <footer>
-<p>Contacto: Correo: MooCouture@gmail.com Telefono: 3333333333 </p>
+<div>Contacto: Correo: MooCouture@gmail.com Telefono: 3333333333 </div>
 </footer>
 
 </body>

@@ -1,3 +1,7 @@
+*{
+	margin: 0;
+	padding: 0;
+}
 .galeria{
 	text-align: center;
 	margin-left: auto;
@@ -11,6 +15,9 @@
     width: 24%;
     text-align: center;
 	display: inline-block;
+	overflow: hidden;
+	z-index: 2;
+
 }
 .header{
 	display: block;
@@ -28,12 +35,10 @@
 	display: inline-block;
 	width: 100%;
 	text-align: center;
-	/*float:left; */
 }
 .menu-lista{
 	position: relative;
 	margin: auto;
-	/*float: left;*/
 }
 
 
@@ -78,7 +83,6 @@ footer{
 	font-size: 15px;
 	text-align: center;
 	height: 20px;
-	position: relative;
 }
 @media only screen and (max-width: 1240px){
     .articulo {
@@ -110,6 +114,10 @@ footer{
     border: 1px solid #ccc;
     width: 300px;
     display: block;
+    border-radius:200%;
+    overflow: hidden;
+    box-shadow: 1px 1px 3px #92278f;
+
 }
 
 .imagen:hover {
@@ -118,7 +126,7 @@ footer{
 
 .imagen img {
     width: 100%;
-    height: auto;
+    overflow: hidden;
 }
 
 .desc {
@@ -127,6 +135,3 @@ footer{
     display: block;
 }
 
-#map{
-	height: 500px;
-}
