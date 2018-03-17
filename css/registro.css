@@ -1,0 +1,27 @@
+#Formulario{
+	display: block;
+	text-align: center;
+	background-color: #FAAFFF;
+	margin: 50px;
+	padding: 10px;
+	border-radius: 5px;
+	padding-bottom: 20px;
+}
+
+input{
+	width: 40%;
+	line-height: 20px;
+	border-radius: 5px;
+
+}
+
+#Primero{
+}
+
+#Segundo{
+	display: none;
+}
+
+#Tercero{
+	display: none;
+}
