@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-03-2018 a las 08:15:00
+-- Tiempo de generación: 18-03-2018 a las 08:41:43
 -- Versión del servidor: 10.1.29-MariaDB
 -- Versión de PHP: 7.2.0
 
@@ -51,6 +51,37 @@ INSERT INTO `producto` (`prodid`, `nombre`, `tipo`, `descripcion`, `stock`, `pre
 (14, 'Choker corazon', 'Collar', 'Collar tipo choker con corazón hecho de aleación y correa de piel con broche de botones.', 5, 60, 'img/collar1.jpg'),
 (15, 'Blusa blanca con rosas', 'Blusa', 'Blusa holgada con estampado de rosas en las mangas y lazo en el cuello color blanco. Material: 100% poliester. Medidas: Hombros 47 cm, Busto 104 cm, Manga 26 cm, Largo 68 cm.', 5, 110, 'img/blusa2.jpg'),
 (16, 'Blusa negra con girasoles', 'Blusa', 'Blusa con hombros descubiertos color negro con estampado de girasoles. Material: 100% poliester. Medidas: Hombros 47 cm, Busto 104 cm, Manga 26 cm, Largo 68 cm.', 5, 100, 'img/blusa4.png');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `nombre` varchar(200) DEFAULT NULL,
+  `apellidop` varchar(200) DEFAULT NULL,
+  `apellidom` varchar(200) DEFAULT NULL,
+  `correo` varchar(200) DEFAULT NULL,
+  `correo1` varchar(200) DEFAULT NULL,
+  `usuario` varchar(200) DEFAULT NULL,
+  `contra` varchar(200) DEFAULT NULL,
+  `calle` varchar(200) DEFAULT NULL,
+  `numint` varchar(200) DEFAULT NULL,
+  `numext` varchar(200) DEFAULT NULL,
+  `colonia` varchar(200) DEFAULT NULL,
+  `ciudad` varchar(200) DEFAULT NULL,
+  `estado` varchar(200) DEFAULT NULL,
+  `cp` varchar(200) DEFAULT NULL,
+  `contra1` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`nombre`, `apellidop`, `apellidom`, `correo`, `correo1`, `usuario`, `contra`, `calle`, `numint`, `numext`, `colonia`, `ciudad`, `estado`, `cp`, `contra1`) VALUES
+('aaa', 'aaa', 'aaa', 'aaa@gmail.com', 'aaa@gmail.com', 'aaa', 'aaa', 'aaa', 'aaa', 'aaa', 'aaa', 'aaa', 'aaa', 'aaa', 'aaa');
 
 --
 -- Índices para tablas volcadas
