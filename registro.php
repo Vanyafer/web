@@ -1,3 +1,13 @@
+<?php
+session_start();
+include 'conexion.php';
+	if(isset($_SESSION['Usuario']))
+	{
+		header("Location: index.php");
+	}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -172,3 +182,27 @@
 
 </body>
 </html>
+
+<?php
+	if($_SERVER['REQUEST_METHOD']=='POST'){
+		$nombre=mysqli_real_escape_string($conexion, $_POST['Nombre']);
+		$apellidop=mysqli_real_escape_string($conexion, $_POST['ApellidoP']);
+		$apellidom=mysqli_real_escape_string($conexion, $_POST['ApellidoM']);
+		$correo=mysqli_real_escape_string($conexion, $_POST['Correo']);
+		$correo1=mysqli_real_escape_string($conexion, $_POST['Correo1']);
+		$usuario=mysqli_real_escape_string($conexion, $_POST['Usuario']);
+		$contra=mysqli_real_escape_string($conexion, $_POST['Contra']);
+		$contra1=mysqli_real_escape_string($conexion, $_POST['Contra1']);
+		$calle=mysqli_real_escape_string($conexion, $_POST['Calle']);
+		$numint=mysqli_real_escape_string($conexion, $_POST['NumInt']);
+		$numext=mysqli_real_escape_string($conexion, $_POST['NumExt']);
+		$colonia=mysqli_real_escape_string($conexion, $_POST['Colonia']);
+		$ciudad=mysqli_real_escape_string($conexion, $_POST['Estado']);
+		$estado=mysqli_real_escape_string($conexion, $_POST['Estado']);
+		$cp=mysqli_real_escape_string($conexion, $_POST['CP']);
+		if (mysqli_query($conexion, "insert into usuario values ('$nombre', '$apellidop', '$apellidom', '$correo', '$correo1', '$usuario', '$contra', '$contra1', '$calle', '$numint', '$numext', '$colonia', '$ciudad', '$estado', '$cp')")) {
+		} else{
+		echo "error:" ;
+		}
+	}
+?>
