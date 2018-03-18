@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="css/orden.css">
     <script src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+          $(".imagen").click(function(){
+            a=$(this).attr("id");
+            window.location.href="./producto.php?prodid="+a;
+          });
+      });
+    </script>
 </head>
 <body  >
 <?php include "barra.php"; ?>
@@ -52,48 +60,50 @@
 
 <div class="galeria">
   <div class="articulo">
-  <div class="imagen">
-      <a href="producto.php"> <img src="img/falda.jpg"></a>
+  <div class="imagen" id="9">
+      <img src="img/falda.jpg"></a>
       <div class="desc"><p>Falda a la cintura negra</p><p>$149.99 MXN</p></div>
+
   </div>
 </div>
 <div class="articulo">
-  <div class="imagen">
+  <div class="imagen" id="10">
       <a href=""><img src="img/lentes4.jpg"></a>
       <div class="desc"><p>Lentes de corazon</p><p>$99.99 MXN</p></div>
   </div>
 </div>
-<div class="articulo">
+<div class="articulo" id='11'>
   <div class="imagen">
       <a href=""><img src="img/pantalon3.jpg"> </a>
       <div class="desc"><p>Pantalón amarillo-negro</p><p>$189.99 MXN</p></div>
   </div>
 </div>
-<div class="articulo">
+<div class="articulo" id='12'>
   <div class="imagen">
       <a href=""> <img src="img/falda3.jpg"></a>
       <div class="desc"><p>Falda cuadros</p><p>$139.99 MXN</p></div>
   </div>
 </div>
-<div class="articulo">
+<div class="articulo" id='13'>
   <div class="imagen">
       <a href=""><img src="img/pantalon4.jpg"></a>
       <div class="desc"><p>Pantalón verde-rojo</p><p>$189.99 MXN</p></div>
   </div>
 </div>
-<div class="articulo">
+<div class="articulo" id='14'>
   <div class="imagen">
       <a href=""><img src="img/collar1.jpg"> </a>
       <div class="desc"><p>Choker corazón</p><p>$59.99 MXN</p></div>
   </div>
 </div>
-<div class="articulo">
+<div class="articulo" id='15'>
   <div class="imagen">
       <a href=""> <img src="img/blusa2.jpg"></a>
       <div class="desc"><p>Blusa blanca con rosas</p><p>$109.99 MXN</p></div>
+
   </div>
 </div>
-<div class="articulo">
+<div class="articulo" id='16'>
   <div class="imagen">
       <a href=""><img src="img/blusa4.png"></a>
       <div class="desc"><p>Blusa negra con girasoles</p><p>$99.99 MXN</p></div>

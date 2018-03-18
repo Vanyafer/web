@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php
+	include("connect.php");
+	$consulta=mysqli_query($connect, "select * from producto where prodid=$_GET[prodid]");
+	$result=mysqli_fetch_array($consulta);
+ ?>
+ <!DOCTYPE html>
 <html>
 <head>
 	<title>Producto</title>
@@ -10,15 +15,16 @@
 <div class="logo"><img src="img/nombre.png" >
 <div class="producto">
 	<div class="box">
-		<img src="img/falda4.jpg">
+		<img src="<?php echo $result["imagen"]?>">
 	</div>
 	<div class="box">
-		<div class="Nombre">Falda</div>
-		<div class="Descripcion">Falda negra circular blablab poliester blbla 100% algodon blablo</div>
-		<div class="Precio">$199</div>
-		<div class="Comprar"><a href="">Agregar a carrito</a></div>
+		<div class="Nombre"><?php echo $result['nombre']?></div>
+		<div class="Descripcion">Descripcion:<?php echo $result['descripcion']?></div>
+		<div class="Precio">Precio: $<?php echo $result['precio']?> MXN</div>
+		<div class="Comprar"><a href="">Agregar al carrito</a></div>
 	</div>
 </div>
 
 </body>
 </html>
+<?php mysqli_close($connect);?>
