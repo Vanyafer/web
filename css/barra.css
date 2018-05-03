@@ -1,6 +1,10 @@
+*{
+	padding: 0;
+	margin: 0;
+}
 nav {
 	background-color: #92278f;
-	color: white;
+
 
 }
 nav a{
@@ -16,16 +20,27 @@ nav .esconder .dropdown-menu a:hover{
 }
 nav li{
 	text-align: center;
-	
 }
-
+ul{
+	list-style-type: none;
+}
 .dropdown-menu li{
 	text-align: left;
-	color:  #92278f;
+	color:  #92278f !important; 
 	display: block;
 	padding-left: 4px;
 	padding: 4px;
 }
+.dropdown-item {
+	color:  #92278f !important; 
+
+}
+@media (max-width: 800px){
+	.dropdown-item {
+	color:  white !important; 
+
+}
+	}
 
 a{
 	text-decoration: none;
@@ -33,4 +48,19 @@ a{
 span{
 	background-color: white;
 
+}
+footer{
+	bottom: 0;
+	position: relative;
+	background-color: #92278f;
+	color: white;
+	width: 100%;
+	font-size: 15px;
+	text-align: center;
+	height: 20px;
+	margin-top: 10px;
+}
+#google_translate_element{
+	visibility: hidden;
+	display: none;
 }

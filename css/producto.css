@@ -6,8 +6,9 @@ a{
 	text-decoration: none;
 }
 .logo{
-	width: 80%;
+	width: 50%;
 	margin: auto;
+	display: block;
 }
 .logo img{
 	width: 100%;

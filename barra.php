@@ -1,12 +1,28 @@
-<!DOCTYPE html>
+<?php 
+if(!isset($_COOKIE['idioma'])){
+     header("Location: Index.php");
+}
+if($_COOKIE['idioma']=='en'){
+  echo "<div id='google_translate_element'></div>
+<script type='text/javascript' src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
+    <script type='text/javascript'>
+      function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+    </script>";
+}
+
+?>
 <html>
 <head>
   <title></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="css/barra.css">
     <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  
 </head>
 <body>
 <nav>
@@ -33,10 +49,10 @@
           </a>
           <div class="dropdown-menu">
              <ul>
-                <li><a class="dropdown-item" href="#">Blusas</a></li>
-                <li><a class="dropdown-item" href="#">Vestidos</a></li>
-                <li><a class="dropdown-item" href="#">Pantalones</a></li>
-                <li><a class="dropdown-item" href="#">Faldas</a></li>
+                <li><a class="dropdown-item" href="productos.php?id=1">Blusas</a></li>
+                <li><a class="dropdown-item" href="productos.php?id=2">Vestidos</a></li>
+                <li><a class="dropdown-item" href="productos.php?id=3">Pantalones</a></li>
+                <li><a class="dropdown-item" href="productos.php?id=4">Faldas</a></li>
               </ul>
           </div>
         </li>
@@ -46,10 +62,10 @@
           </a>
           <div class="dropdown-menu">
               <ul>
-                <li><a class="dropdown-item" href="#">Collares</a></li>
-                <li><a class="dropdown-item" href="#">Lentes</a></li>
-                <li><a class="dropdown-item" href="#">Bisuteria</a></li>
-                <li><a class="dropdown-item" href="#">Bolsos</a></li>
+                <li><a class="dropdown-item" href="productos.php?id=5">Collares</a></li>
+                <li><a class="dropdown-item" href="productos.php?id=6">Lentes</a></li>
+                <li><a class="dropdown-item" href="productos.php?id=7">Bisuteria</a></li>
+                <li><a class="dropdown-item" href="productos.php?id=8">Bolsos</a></li>
               </ul>
           </div>
         </li>

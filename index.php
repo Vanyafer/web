@@ -1,122 +1,54 @@
-<!DOCTYPE html>
-<html >
-<head>
-  <title>MooCouture</title>
+
+
+        
+<?php
+
+// menu para cambiar de lengua si las cookies están activas, si no no se muestra
+
+if (isset($_COOKIE['idioma'])){
+     header("Location: Inicio.php");
+}else{
+  echo "<link rel='stylesheet' type='text/css' href='css/inicio.css'>";
+  echo "<div class='Opciones'><fieldset><form method='POST' action='Idioma.php'>
+  <select name='idioma'>
+    <option value='es'>Español</option>
+    <option value='en'>Ingles</option>
+  </select>
+  <input type='submit'>
+  </form></fieldset>
+</div";
   
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="css/orden.css">
-    <script src="js/jquery.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function(){
-          $(".imagen").click(function(){
-            a=$(this).attr("id");
-            window.location.href="./producto.php?prodid="+a;
-          });
-      });
-    </script>
-</head>
-<body  >
-<?php include "barra.php"; ?>
-<header>
- <div class="logo"><img src="img/nombre.png" >
-</div> 
-<nav class="menu">
- 
-      <ul class="menu-lista">
-        <li class="nav-item"><a href="#">Inicio</a></li>
-        <li class="nav-item">
-          <a href="#">Ofertas</a>
-        </li> 
-        <li class="nav-item">
-          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-            Ropa
-          </a>
-          <div class="dropdown-menu">
-             <ul>
-                <li><a class="dropdown-item" href="#">Blusas</a></li>
-                <li><a class="dropdown-item" href="#">Vestidos</a></li>
-                <li><a class="dropdown-item" href="#">Pantalones</a></li>
-                <li><a class="dropdown-item" href="#">Faldas</a></li>
-              </ul>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-           Accesorios
-          </a>
-          <div class="dropdown-menu">
-              <ul>
-                <li><a class="dropdown-item" href="#">Collares</a></li>
-                <li><a class="dropdown-item" href="#">Lentes</a></li>
-                <li><a class="dropdown-item" href="#">Bisuteria</a></li>
-                <li><a class="dropdown-item" href="#">Bolsos</a></li>
-              </ul>
-          </div>
-        </li>
-      </ul>
-</nav>
+  /*
+ echo "<div id='google_translate_element'></div>
 
-</header>
+<script type='text/javascript'>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
 
-<div class="galeria">
-  <div class="articulo">
-  <div class="imagen" id="9">
-      <img src="img/falda.jpg"></a>
-      <div class="desc"><p>Falda a la cintura negra</p><p>$149.99 MXN</p></div>
+<script type='text/javascript' src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>";
+}
+  
+    echo "<div id='google_translate_element'></div><script type='text/javascript' src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
+    <script type='text/javascript'>
+      function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+    </script>";
+}
+/*
 
-  </div>
-</div>
-<div class="articulo">
-  <div class="imagen" id="10">
-      <a href=""><img src="img/lentes4.jpg"></a>
-      <div class="desc"><p>Lentes de corazon</p><p>$99.99 MXN</p></div>
-  </div>
-</div>
-<div class="articulo" id='11'>
-  <div class="imagen">
-      <a href=""><img src="img/pantalon3.jpg"> </a>
-      <div class="desc"><p>Pantalón amarillo-negro</p><p>$189.99 MXN</p></div>
-  </div>
-</div>
-<div class="articulo" id='12'>
-  <div class="imagen">
-      <a href=""> <img src="img/falda3.jpg"></a>
-      <div class="desc"><p>Falda cuadros</p><p>$139.99 MXN</p></div>
-  </div>
-</div>
-<div class="articulo" id='13'>
-  <div class="imagen">
-      <a href=""><img src="img/pantalon4.jpg"></a>
-      <div class="desc"><p>Pantalón verde-rojo</p><p>$189.99 MXN</p></div>
-  </div>
-</div>
-<div class="articulo" id='14'>
-  <div class="imagen">
-      <a href=""><img src="img/collar1.jpg"> </a>
-      <div class="desc"><p>Choker corazón</p><p>$59.99 MXN</p></div>
-  </div>
-</div>
-<div class="articulo" id='15'>
-  <div class="imagen">
-      <a href=""> <img src="img/blusa2.jpg"></a>
-      <div class="desc"><p>Blusa blanca con rosas</p><p>$109.99 MXN</p></div>
+// menu para cambiar de lengua si las cookies están activas, si no no se muestra
 
-  </div>
-</div>
-<div class="articulo" id='16'>
-  <div class="imagen">
-      <a href=""><img src="img/blusa4.png"></a>
-      <div class="desc"><p>Blusa negra con girasoles</p><p>$99.99 MXN</p></div>
-  </div>
-</div>
-
-
-
-</div>
-
-<footer>
-<div>Contacto: Correo: MooCouture@gmail.com Telefono: 3333333333 </div>
-</footer>
-
-</body>
-</html>
+if (isset($_COOKIE['idioma'])){
+     header("Location: Inicio.php");
+}else{
+    echo "<div id='google_translate_element'></div><script type='text/javascript'>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script><script type='text/javascript' src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>";
+}*/
+}
+?>

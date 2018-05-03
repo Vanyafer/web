@@ -17,63 +17,15 @@
 	display: inline-block;
 
 }
-.header{
-	display: block;
-	text-align: center;
-}
-.logo{
-	width: 50%;
-	margin: auto;
-}
-.logo img{
-	width: 100%;
-}
-.menu{
-	background-color: white;
-	display: inline-block;
+
+
+
+h1{
+	color: #92278f !important;
 	width: 100%;
 	text-align: center;
+	font-style: black;
 }
-.menu-lista{
-	position: relative;
-	margin: auto;
-}
-
-
-.nav-item {
- display: inline-block;
- padding: 6px;
- position: relative;
-}
-
-.menu a{
-	color:  #92278f;
-	text-decoration: none;
-	font-size: 17px;
-}
-.menu li{
-	border-radius: 5px;
-}
-.menu li:hover{
-	background-color: #f1d1ff;
-}
-.menu .dropdown-menu li:hover{
-	background-color: #f1d1ff;
-	}
-.esconder{
-	display: none !important;
-}
-
-@media (max-width: 500px){
-	.menu{
-		display: none;
-	}
-	.esconder{
-		display: block !important;
-		
-	}
-}
-
 @media only screen and (max-width: 1240px){
     .articulo {
         width: 33%;
