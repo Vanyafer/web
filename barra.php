@@ -37,7 +37,7 @@ if($_COOKIE['idioma']=='en'){
   <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-left">
         <li><a href="registro.php">Registrarse</a></li>
-        <li><a href="">Sesion</a></li>
+        <li><a href="sesion.php">Sesion</a></li>
         <li><a href="contacto.php">Contacto</a></li>
         <li><a href="Carrito.php">Carrito</a></li>
         <li class="esconder"><a href="index.php">Inicio</a></li>
