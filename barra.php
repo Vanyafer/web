@@ -3,11 +3,11 @@ if(!isset($_COOKIE['idioma'])){
      header("Location: Index.php");
 }
 if($_COOKIE['idioma']=='en'){
-  echo "<div id='google_translate_element'></div>
+  echo "
 <script type='text/javascript' src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
     <script type='text/javascript'>
       function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+  new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
 }
     </script>";
 }
@@ -39,7 +39,9 @@ if($_COOKIE['idioma']=='en'){
         <li><a href="registro.php">Registrarse</a></li>
         <li><a href="">Sesion</a></li>
         <li><a href="contacto.php">Contacto</a></li>
+        <li><a href="Carrito.php">Carrito</a></li>
         <li class="esconder"><a href="index.php">Inicio</a></li>
+
         <li class="esconder">
           <a href="#">Ofertas</a>
         </li> 

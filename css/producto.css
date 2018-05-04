@@ -47,9 +47,7 @@ a{
 	position: relative;
 }
 .Comprar{
-	margin: 10px;
-	position: relative;
-	width: 40%;
+	margin: 10px;	width: 40%;
 	bottom: 10px;
 	float: right;
 	background-color: #92278f;
@@ -57,14 +55,6 @@ a{
 	border-radius: 5px;
 	box-shadow: 1px 1px 3px #92278f; 
 
-}
-.Comprar a{
-	text-decoration: none;
-	color: white;
-
-}
-.Comprar a:hover{
-	text-decoration: none;
 	color: white;
 }
 .Comprar:hover{

@@ -9,12 +9,12 @@ if (isset($_COOKIE['idioma'])){
      header("Location: Inicio.php");
 }else{
   echo "<link rel='stylesheet' type='text/css' href='css/inicio.css'>";
-  echo "<div class='Opciones'><fieldset><form method='POST' action='Idioma.php'>
+  echo "<div class='Opciones'><h1>Escoge un idioma</h1><fieldset><form method='POST' action='Idioma.php'>
   <select name='idioma'>
     <option value='es'>Español</option>
     <option value='en'>Ingles</option>
   </select>
-  <input type='submit'>
+  <input type='submit' value='Aceptar'>
   </form></fieldset>
 </div";
   
