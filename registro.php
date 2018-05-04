@@ -5,7 +5,6 @@ include 'conexion.php';
 	{
 		header("Location: index.php");
 	}
-
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +19,7 @@ include 'conexion.php';
 	<?php include "barra.php"; ?>
 	<div id="Formulario">
 	<h1>Registro</h1>
-	<form id="Registro" action="registro.php" onsubmit="return validateForm2()" method="POST">
+	<form id="Registro" action="registro.php" method="POST">
 	<div id="Primero">
 		<p>Nombre(s)</p>
 		<input type="text" name="Nombre" id="Nombre">
@@ -58,22 +57,23 @@ include 'conexion.php';
 		<input type="text" name="Estado" id="Estado">
 		<p>Código postal</p>
 		<input type="text" name="CP" id="CP">
+		<p>Número de tarjeta de crédito</p>
+		<input type="text" name="CC" id="CC">
+		<p>CCV</p>
+		<input type="text" name="CCV" id="CCV">
+		<p>Fecha de expiración</p>
+		<input type="text" name="Fecha" id="Fecha">
 		<p></p>
 		<input type="submit" name="Enviar" value="Enviar">
 	</div>
 	</div>
 	</form>
-	
-		<div id="Tercero">
-		<h1>Gracias por registrarte</h1>
-
-	
 	</div>
 
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("button").click(function (e) {
-			function validateForm() {
+				e.preventDefault();
     			var a = $('#Nombre').val();
 				var b = $('#ApellidoP').val();
 				var c = $('#ApellidoM').val();
@@ -115,19 +115,14 @@ include 'conexion.php';
 	    			alert("Los emails no coinciden");
 					return false;
 				}
-				else{
-					return true;
-				}
-			}
-			if (validateForm() == true){
-			$('#Primero').slideUp();
-			setTimeout(() => {
-			$('#Segundo').slideDown();
-			}, 300);
-			}
+				console.log("Todo salio bien");
+				$('#Primero').slideUp();
+				setTimeout(() => {
+					$('#Segundo').slideDown();
+				}, 300);
+				return true;
+			})
 		});
-		
-	});
 </script>
 
 <script type="text/javascript">
@@ -139,6 +134,11 @@ include 'conexion.php';
 				var m = $('#Ciudad').val();
 				var n = $('#Estado').val();
 				var o = $('#CP').val();
+				var r = $('#CC').val();
+				var s = $('#CCV').val();
+				var t = $('#Fecha').val();
+
+				
 
     			if (q == "") {
     	    		alert("Por favor ingrese su calle");
@@ -168,17 +168,32 @@ include 'conexion.php';
 	    			alert("Por favor ingrese su código postal");
 					return false;
 				}
-				else{
-					return true;
+				if (r == "") {
+	    			alert("Por favor ingrese un número de tarjeta de crédito");
+					return false;
 				}
+				if (s == "") {
+	    			alert("Por favor ingrese su CCV");
+					return false;
+				}
+				if (t == "") {
+	    			alert("Por favor ingrese la fecha de expiración");
+					return false;
+				}
+				
+				return true;
 	}
 
-	if (validateForm2() == true){
-			$('#Segundo').slideUp();
-			setTimeout(() => {
-			$('#Tercero').slideDown();
-			}, 300);
-	}
+		$("[name=Enviar]").click(function(e){
+			if(validateForm2() == true){
+				$('#Segundo').slideUp();
+				setTimeout(() => {
+					$('#Tercero').slideDown();
+				}, 300);
+			}else{
+				e.preventDefault();
+			}
+		})
 </script>
 
 </body>
@@ -199,9 +214,18 @@ include 'conexion.php';
 		$ciudad=mysqli_real_escape_string($conexion, $_POST['Ciudad']);
 		$estado=mysqli_real_escape_string($conexion, $_POST['Estado']);
 		$cp=mysqli_real_escape_string($conexion, $_POST['CP']);
-		if (mysqli_query($conexion, "insert into usuario values ('$nombre', '$apellidop', '$apellidom', '$correo', '$usuario', '$contra', '$calle', '$numint', '$numext', '$colonia', '$ciudad', '$estado', '$cp')")) {
+		$cc=mysqli_real_escape_string($conexion, $_POST['CC']);
+		$ccv=mysqli_real_escape_string($conexion, $_POST['CCV']);
+		$fecha=mysqli_real_escape_string($conexion, $_POST['Fecha']);
+
+		if (mysqli_query($conexion, "insert into usuario values (NULL, '$nombre', '$apellidop', '$apellidom', '$correo', '$usuario', '$contra', '$calle', '$numint', '$numext', '$colonia', '$ciudad', '$estado', '$cp', '$cc', '$ccv', '$fecha')")) {
+			$_SESSION['Usuario'] = $_POST['Usuario'];
 		} else{
 		echo "error:" ;
 		}
 	}
 ?>
+
+
+
+
