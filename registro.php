@@ -60,11 +60,12 @@ include 'conexion.php';
 		<input type="text" name="CP" id="CP">
 		<p></p>
 		<input type="submit" name="Enviar" value="Enviar">
-		<div id="Tercero">
-		<h1>Gracias por registrarte</h1>
 	</div>
 	</div>
 	</form>
+	
+		<div id="Tercero">
+		<h1>Gracias por registrarte</h1>
 
 	
 	</div>
@@ -189,18 +190,16 @@ include 'conexion.php';
 		$apellidop=mysqli_real_escape_string($conexion, $_POST['ApellidoP']);
 		$apellidom=mysqli_real_escape_string($conexion, $_POST['ApellidoM']);
 		$correo=mysqli_real_escape_string($conexion, $_POST['Correo']);
-		$correo1=mysqli_real_escape_string($conexion, $_POST['Correo1']);
 		$usuario=mysqli_real_escape_string($conexion, $_POST['Usuario']);
 		$contra=mysqli_real_escape_string($conexion, $_POST['Contra']);
-		$contra1=mysqli_real_escape_string($conexion, $_POST['Contra1']);
 		$calle=mysqli_real_escape_string($conexion, $_POST['Calle']);
 		$numint=mysqli_real_escape_string($conexion, $_POST['NumInt']);
 		$numext=mysqli_real_escape_string($conexion, $_POST['NumExt']);
 		$colonia=mysqli_real_escape_string($conexion, $_POST['Colonia']);
-		$ciudad=mysqli_real_escape_string($conexion, $_POST['Estado']);
+		$ciudad=mysqli_real_escape_string($conexion, $_POST['Ciudad']);
 		$estado=mysqli_real_escape_string($conexion, $_POST['Estado']);
 		$cp=mysqli_real_escape_string($conexion, $_POST['CP']);
-		if (mysqli_query($conexion, "insert into usuario values ('$nombre', '$apellidop', '$apellidom', '$correo', '$correo1', '$usuario', '$contra', '$contra1', '$calle', '$numint', '$numext', '$colonia', '$ciudad', '$estado', '$cp')")) {
+		if (mysqli_query($conexion, "insert into usuario values ('$nombre', '$apellidop', '$apellidom', '$correo', '$usuario', '$contra', '$calle', '$numint', '$numext', '$colonia', '$ciudad', '$estado', '$cp')")) {
 		} else{
 		echo "error:" ;
 		}
