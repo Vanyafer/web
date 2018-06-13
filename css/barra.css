@@ -51,7 +51,7 @@ span{
 }
 footer{
 	bottom: 0;
-	position: relative;
+	position: fixed;
 	background-color: #92278f;
 	color: white;
 	width: 100%;

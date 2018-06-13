@@ -6,9 +6,8 @@ a{
 	text-decoration: none;
 }
 .logo{
-	width: 50%;
+	width: 80%;
 	margin: auto;
-	display: block;
 }
 .logo img{
 	width: 100%;
@@ -40,23 +39,44 @@ a{
 	font-size: 20px;
 	padding: 10px;
 }
+.Cantidad{
+	font-size: 20px;
+	padding-left: 50px;
+}
 .Precio{
-	font-size: 30px;
+	font-size: 25px;
+	padding: 10px;
+	position: relative;
+}
+.Comprar{
+	margin: 10px;
+	position: relative;
+	width: 40%;
+	bottom: 10px;
+	float: right;
+	background-color: #92278f;
+	color: white;
+	border-radius: 5px;
+	box-shadow: 1px 1px 3px #92278f; 
+
+}
+
+.Comprar:hover{
+	text-decoration: none;
+	color: black;
+	background-color: #FAAFFF;
+}
+.Stock{
+	font-size: 25px;
 	padding: 10px;
 	text-align: left;
 	position: relative;
 }
-.Comprar{
-	margin: 10px;	width: 40%;
-	bottom: 10px;
-	float: right;
-	background-color: #92278f;
-
-	border-radius: 5px;
-	box-shadow: 1px 1px 3px #92278f; 
-
-	color: white;
+.Descuentos{
+	font-size: 25px;
+	text-align: left;
+	position: relative;
 }
-.Comprar:hover{
-	background-color: #FAAFFF;
+.Descuentos a{
+	color: #92278f;
 }

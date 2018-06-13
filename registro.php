@@ -1,8 +1,8 @@
 <?php
-session_start();
-include 'conexion.php';
+include 'Conexion.php';
 	if(isset($_SESSION['Usuario']))
 	{
+		
 		header("Location: index.php");
 	}
 ?>
@@ -218,8 +218,9 @@ include 'conexion.php';
 		$ccv=mysqli_real_escape_string($conexion, $_POST['CCV']);
 		$fecha=mysqli_real_escape_string($conexion, $_POST['Fecha']);
 
-		if (mysqli_query($conexion, "insert into usuario values (NULL, '$nombre', '$apellidop', '$apellidom', '$correo', '$usuario', '$contra', '$calle', '$numint', '$numext', '$colonia', '$ciudad', '$estado', '$cp', '$cc', '$ccv', '$fecha')")) {
+		if (mysqli_query($conexion, "INSERT into usuario values (NULL, '$nombre', '$apellidop', '$apellidom', '$correo', '$usuario', '$contra', '$calle', '$numint', '$numext', '$colonia', '$ciudad', '$estado', '$cp', '$cc', '$ccv', '$fecha')")) {
 			$_SESSION['Usuario'] = $_POST['Usuario'];
+			header("Location: index.php");
 		} else{
 		echo "error:" ;
 		}

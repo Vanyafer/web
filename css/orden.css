@@ -22,7 +22,7 @@
 	text-align: center;
 }
 .logo{
-	width: 50%;
+	width: 80%;
 	margin: auto;
 }
 .logo img{
@@ -70,10 +70,18 @@
 	}
 	.esconder{
 		display: block !important;
-		
 	}
 }
-
+footer{
+	bottom: 0;
+	display: block;
+	background-color: #92278f;
+	color: white;
+	width: 100%;
+	font-size: 15px;
+	text-align: center;
+	height: 20px;
+}
 @media only screen and (max-width: 1240px){
     .articulo {
         width: 33%;

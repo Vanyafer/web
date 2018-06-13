@@ -59,7 +59,7 @@
 
 <div class="galeria">
 <?php 
-include "conexion.php";
+include "Conexion.php";
 $con = 8;
   $consulta = mysqli_query($conexion,"SELECT * FROM producto order by prodid DESC");
 

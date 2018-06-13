@@ -1,9 +1,9 @@
 <?php 
 if(!isset($_COOKIE['idioma'])){
-     header("Location: Index.php");
+     header("Location: index.php");
 }
 if($_COOKIE['idioma']=='en'){
-  echo "
+  echo "<div id='google_translate_element'></div>
 <script type='text/javascript' src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
     <script type='text/javascript'>
       function googleTranslateElementInit() {
@@ -11,7 +11,7 @@ if($_COOKIE['idioma']=='en'){
 }
     </script>";
 }
-
+session_start();
 ?>
 <html>
 <head>
@@ -36,10 +36,13 @@ if($_COOKIE['idioma']=='en'){
     </div>
   <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-left">
-        <li><a href="registro.php">Registrarse</a></li>
-        <li><a href="sesion.php">Sesion</a></li>
+        <li><a id="registroid" href="registro.php">Registrarse</a></li>
+        <li><a id="sesionid" href="sesion.php">Iniciar Sesión</a></li>
+        <li><a id="cerses" href="cerrarsesion.php">Cerrar Sesión</a></li>
         <li><a href="contacto.php">Contacto</a></li>
-        <li><a href="Carrito.php">Carrito</a></li>
+        <li><a id="carrid" href="Carrito.php">Carrito</a></li>
+        <li><a id="agregar" href="AgregarProducto.php">Agregar producto</a></li>
+        <li><a id="agregar" href="Descuentos.php">Descuentos</a></li>
         <li class="esconder"><a href="index.php">Inicio</a></li>
 
         <li class="esconder">
@@ -71,10 +74,23 @@ if($_COOKIE['idioma']=='en'){
               </ul>
           </div>
         </li>
-
       </ul>
-
-      <form class="navbar-form navbar-right">
+        <?php
+        if(isset($_SESSION['id_usuario'])){
+            echo '<ul class="nav navbar-nav navbar-right">';
+            echo "<li><a>Bienvenido, ".$_SESSION['usuario']."</a></li>";
+            echo '</ul>';
+        }
+        if(isset($_SESSION['id_admin'])){
+            echo '<ul class="nav navbar-nav navbar-right">';
+            echo "<li><a>Bienvenido, ".$_SESSION['usuario']."</a></li>";
+            echo '</ul>';
+        }
+        ?>
+     
+    
+            
+      <!--form class="navbar-form navbar-right">
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Search">
             <div class="input-group-btn">
@@ -84,7 +100,31 @@ if($_COOKIE['idioma']=='en'){
             </div>
           </div>
         </form>
-    </div>
+    </div-->
 </nav>
 </body>
 </html>
+
+<?php
+    if(isset($_SESSION['id_usuario'])){
+        echo "<script Language='JavaScript'>document.getElementById('registroid').style.display='none';</script>";
+        echo "<script Language='JavaScript'>document.getElementById('sesionid').style.display='none';</script>";
+        echo "<script Language='JavaScript'>document.getElementById('cerses').style.visibility='visible';</script>";
+        echo "<script Language='JavaScript'>document.getElementById('carrid').style.visibility='visible';</script>";
+        echo "<script Language='JavaScript'>document.getElementById('agregar').style.display='none';</script>";
+    }
+    else{
+      if(isset($_SESSION['id_admin'])){
+        echo "<script Language='JavaScript'>document.getElementById('registroid').style.display='none';</script>";
+        echo "<script Language='JavaScript'>document.getElementById('sesionid').style.display='none';</script>";
+        echo "<script Language='JavaScript'>document.getElementById('cerses').style.visibility='visible';</script>";
+        echo "<script Language='JavaScript'>document.getElementById('carrid').style.visibility='visible';</script>";
+        echo "<script Language='JavaScript'>document.getElementById('agregar').style.visibility='visible';</script>";
+      }
+      else{
+        echo "<script Language='JavaScript'>document.getElementById('cerses').style.display='none';</script>";
+        echo "<script Language='JavaScript'>document.getElementById('carrid').style.display='none';</script>";
+        echo "<script Language='JavaScript'>document.getElementById('agregar').style.display='none';</script>";
+      }
+    }
+    ?>

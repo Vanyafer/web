@@ -1,6 +1,6 @@
 <?php
 
-include 'conexion.php';
+include 'Conexion.php';
   $id = $_GET['id'];
     $consulta = mysqli_query($conexion,"SELECT * FROM tipos where id_tipo = $id");
     $result = mysqli_fetch_array($consulta);

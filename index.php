@@ -36,8 +36,8 @@ function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
 }
     </script>";
-}
-/*
+
+
 
 // menu para cambiar de lengua si las cookies están activas, si no no se muestra
 

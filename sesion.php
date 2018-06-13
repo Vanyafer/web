@@ -24,30 +24,41 @@
 </html>
 
 <?php 
-if(isset($_SESSION['Usuario']))header("Location: Index.php");
+if(isset($_SESSION['id_usuario']))header("Location: Inicio.php");
 	if($_SERVER['REQUEST_METHOD']=='POST'){
 		$Usu=mysqli_real_escape_string($conexion, $_POST['Usuario']);
 		$Contra=mysqli_real_escape_string($conexion, $_POST['Password']);
 		$auth=mysqli_query($conexion,"SELECT * FROM usuario WHERE usuario ='$Usu' and contra='$Contra'");
-
+		$authadmin=mysqli_query($conexion,"SELECT * FROM admin WHERE usuario ='$Usu' and contra='$Contra'");
 		if(mysqli_num_rows($auth)==1){
 			$result=mysqli_fetch_array($auth);
+			$_SESSION['id_usuario']=$result['id_usuario'];
 			$_SESSION['nombre']=$result['nombre'];
-			$_SESSION['ApellidoP']=$result['ApellidoP'];
-			$_SESSION['ApellidoM']=$result['ApellidoM'];
+			$_SESSION['apellidop']=$result['apellidop'];
+			$_SESSION['apellidom']=$result['apellidom'];
 			$_SESSION['correo']=$result['correo'];
 			$_SESSION['usuario']=$Usu;
 			$_SESSION['contra']=$Contra;
 			$_SESSION['calle']=$result['calle'];
-			$_SESSION['NumInt']=$result['NumInt'];
-			$_SESSION['NumExt']=$result['NumExt'];
+			$_SESSION['numInt']=$result['numint'];
+			$_SESSION['numext']=$result['numext'];
 			$_SESSION['colonia']=$result['colonia'];
 			$_SESSION['ciudad']=$result['ciudad'];
 			$_SESSION['estado']=$result['estado'];
 			$_SESSION['cp']=$result['cp'];
-
-			header("Location: Index.php");
-		}else{
+			$_SESSION['cc']=$result['cc'];
+			$_SESSION['ccv']=$result['ccv'];
+			$_SESSION['fecha']=$result['fecha'];
+			header("Location: index.php");
+		}
+		else{
+			if (mysqli_num_rows($authadmin)==1){
+				$result=mysqli_fetch_array($authadmin);
+				$_SESSION['id_admin']=$result['id_admin'];
+				$_SESSION['usuario']=$Usu;
+				$_SESSION['contra']=$Contra;
+				header("Location: index.php");
+			}
 		}
 	}
 	mysqli_close($conexion);
