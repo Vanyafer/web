@@ -1,18 +1,32 @@
 <?php 
 include("Conexion.php");
- $id = $_POST['id'];
- $cantidad = $_POST['Cantidad'];
- echo $id.$cantidad;
- $consulta=mysqli_query($conexion, "select * from producto where prodid=$id");
-		$result=mysqli_fetch_array($consulta);
-		$precio = $result['precio'];
-session_start();
-$usuario = $_SESSION['id_usuario'];
-$consultaUsuario= mysqli_query($conexion, "select * from usuario where id_usuario=$usuario");
-	$resultUsuario=mysqli_fetch_array($consultaUsuario);
-	$usuario = $resultUsuario['id_usuario'];
+ $prod = $_POST['id'];
+ $cant = $_POST['Cantidad'];
 
-mysqli_query($conexion,"INSERT into carrito values(NULL,$id,$precio,$cantidad,$usuario)");
-$stock = $result['stock']-$cantidad;
-header("location: producto.php?prodid=".$id);
+$cookie_name="carrito";
+
+
+$auth=mysqli_query($conexion,"SELECT * FROM producto WHERE prodid=$prod");
+if(mysqli_num_rows($auth)==1){
+	if(!isset($_COOKIE["carrito"]))
+	        {
+	            $valor=$prod;
+	            setcookie($cookie_name, $valor, time() + (86400), "/"); // 86400 = 1 day
+	            $cant--;
+	            $carrito=$valor;
+	        }
+	        else {
+	            $carrito=$_COOKIE["carrito"];
+	        }
+	        
+	        for ($i=0; $i <$cant ; $i++) { 
+	            $carrito=$carrito.",".$prod;
+	        }
+	        unset($_COOKIE["carrito"]);
+	        
+	        setcookie($cookie_name, $carrito, time() + (86400), "/"); // 86400 = 1 day
+
+	$stock = $result['stock']-$cantidad;
+	header("location: producto.php?prodid=".$prod);
+}
 ?>

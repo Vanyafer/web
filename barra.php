@@ -123,7 +123,6 @@ session_start();
       }
       else{
         echo "<script Language='JavaScript'>document.getElementById('cerses').style.display='none';</script>";
-        echo "<script Language='JavaScript'>document.getElementById('carrid').style.display='none';</script>";
         echo "<script Language='JavaScript'>document.getElementById('agregar').style.display='none';</script>";
       }
     }

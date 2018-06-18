@@ -1,7 +1,7 @@
 <?php
 	include("Conexion.php");
 	$idCompra =$_POST['idp'];
-	$consulta=mysqli_query($conexion, "select * from carrito where Id_carrito=$idCompra");
+	$consulta=mysqli_query($conexion, "select * from carrito where id_carrito=$idCompra");
 	$resultCompra=mysqli_fetch_array($consulta);
 	$id = $resultCompra['prodid'];
 	
@@ -28,3 +28,5 @@
 	</div>
 </div>
 		
+
+

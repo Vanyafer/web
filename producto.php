@@ -25,7 +25,7 @@
 		<div class="Nombre"><?php echo $result['nombre']?></div>
 		<div class="Descripcion">Descripcion: <?php echo $result['descripcion']?></div>
 		<div class="Precio">Precio: $<?php echo $precio?> MXN</div>
-		<div class="Cantidad">Cantidad<input type="number" name="Cantidad" max="<?php echo $result['stock']?>" min="0" value="0"></div>
+		<div class="Cantidad">Cantidad<input type="number" name="Cantidad" max="<?php echo $result['stock']?>" min="1" value="1"></div>
 		<div>
 			<input type="submit" name="Agregar al carrito" value="Agregar al carrito"  class="Comprar">
 		</div>
@@ -53,6 +53,9 @@
 
 
 <?php
+	if(!isset($_SESSION['id_usuario']) || !isset($_SESSION['id_admin']) ){
+        echo "<script Language='JavaScript'>document.getElementById('cambiar').style.display='none';</script>";
+    }
 	if(isset($_SESSION['id_usuario'])){
         echo "<script Language='JavaScript'>document.getElementById('cambiar').style.display='none';</script>";
     }
