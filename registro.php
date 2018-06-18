@@ -138,7 +138,28 @@ include 'Conexion.php';
 				var s = $('#CCV').val();
 				var t = $('#Fecha').val();
 
-				
+				var num = CC.val();
+				var cifra = null;
+				var cifra_cad = null;
+				var suma = 0;
+				for (var i=0; i < num.length; i+=2){
+					cifra = parseInt(num.charAt(i))*2;
+					if (cifra > 9){ 
+						cifra_cad = cifra.toString();
+						cifra = parseInt(cifra_cad.charAt(0)) + 
+					parseInt(cifra_cad.charAt(1));
+					}
+					suma+=cifra;
+				}
+				for (var i=1; i < num.length; i+=2){
+					suma += parseInt(num.charAt(i));
+				}
+
+
+				if((suma % 10) != 0){
+					alert("El número de tarjeta no es válido");
+					return false;
+				}
 
     			if (q == "") {
     	    		alert("Por favor ingrese su calle");
