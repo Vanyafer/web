@@ -42,7 +42,8 @@ session_start();
         <li><a href="contacto.php">Contacto</a></li>
         <li><a id="carrid" href="Carrito.php">Carrito</a></li>
         <li><a id="agregar" href="AgregarProducto.php">Agregar producto</a></li>
-        <li><a id="agregar" href="Descuentos.php">Descuentos</a></li>
+        <li><a id="descu" href="Descuentos.php">Descuentos</a></li>
+        <li><a id="pedi" href="Pedidos.php">Pedidos</a></li>
         <li class="esconder"><a href="index.php">Inicio</a></li>
 
         <li class="esconder">
@@ -112,6 +113,8 @@ session_start();
         echo "<script Language='JavaScript'>document.getElementById('cerses').style.visibility='visible';</script>";
         echo "<script Language='JavaScript'>document.getElementById('carrid').style.visibility='visible';</script>";
         echo "<script Language='JavaScript'>document.getElementById('agregar').style.display='none';</script>";
+        echo "<script Language='JavaScript'>document.getElementById('descu').style.display='none';</script>";
+        echo "<script Language='JavaScript'>document.getElementById('pedi').style.display='none';</script>";
     }
     else{
       if(isset($_SESSION['id_admin'])){
@@ -124,6 +127,8 @@ session_start();
       else{
         echo "<script Language='JavaScript'>document.getElementById('cerses').style.display='none';</script>";
         echo "<script Language='JavaScript'>document.getElementById('agregar').style.display='none';</script>";
+        echo "<script Language='JavaScript'>document.getElementById('descu').style.display='none';</script>";
+        echo "<script Language='JavaScript'>document.getElementById('pedi').style.display='none';</script>";
       }
     }
     ?>

@@ -81,7 +81,7 @@
 					}
 					if(isset($cant_desc))
 					{
-						$consulta=mysqli_query($connect,"SELECT * FROM descuentos WHERE cantidad=$cant_desc ORDER BY porcentaje");
+						$consulta=mysqli_query($conexion,"SELECT * FROM descuentos WHERE cantidad=$cant_desc ORDER BY porcentaje");
 						if(mysqli_num_rows($consulta)>0)
 						{
 							while($ae=mysqli_fetch_assoc($consulta))
@@ -185,7 +185,7 @@
 						echo '<tr class="active"><th colspan="6"><button class="btn btn-lg btn-block" onclick="confirmar()" disabled> SIGUIENTE <i class="fas fa-arrow-right"></i></button></th></tr>';
 					}
 					else {
-						echo '<tr><th colspan="6"><a class="Abrir">Comprar</th></tr>';
+						echo '<tr><th colspan="6"><a href="comprar.php" class="Abrir">Comprar</th></tr>';
 					}
 					
 				}

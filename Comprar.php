@@ -1,32 +1,61 @@
+<?php include "barra.php"; include("Conexion.php"); ?>
+
 <?php
-	include("Conexion.php");
-	$idCompra =$_POST['idp'];
-	$consulta=mysqli_query($conexion, "select * from carrito where id_carrito=$idCompra");
+	$usu = $_SESSION['id_usuario'];
+	$consulta=mysqli_query($conexion, "select * from usuario where id_usuario = $usu");
 	$resultCompra=mysqli_fetch_array($consulta);
-	$id = $resultCompra['prodid'];
-	
-	$consultaProducto=mysqli_query($conexion, "select * from producto where prodid=$id");
-	$resultProducto=mysqli_fetch_array($consultaProducto);
+
+	$calle = $resultCompra['calle'];
+	$numext = $resultCompra['numext'];
+	$numint = $resultCompra['numint'];
+	$colonia = $resultCompra['colonia'];
+	$ciudad = $resultCompra['ciudad'];
+	$estado = $resultCompra['estado'];
+	$cp = $resultCompra['cp'];
 
  ?>
  <link rel="stylesheet" type="text/css" href="css/compra.css">
-<div>
-	<div class="box">
-		<img src="<?php echo $resultProducto["imagen"]?>" class="imagencompra">
-	</div>
-	<div class="box">
-	<form action="AceptarCompra.php" method="POST">
-	<input type="hidden" id="idp" name="idp" value="<?php echo $resultCompra['id_carrito']; ?>">
-	
-		<div class="Nombre"><?php echo $resultProducto['nombre']?></div>
-		<div class="Descripcion">Descripcion: <?php echo $resultProducto['descripcion']?></div>
-		<div class="Precio">Precio: $<?php echo $resultProducto['precio']?> MXN</div>
-		<div> Cantidad: <?php echo $resultCompra['cantidad']?></div>
-			<input type="submit" name="Aceptar" value="Aceptar" class="Comprar">
-		
-	</form>
-	</div>
-</div>
-		
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title></title>
+ 	<link rel="stylesheet" type="text/css" href="css/carrito.css">
+ </head>
+ <body>
+ 	<table>
+		<tr>
+		<th class="cinta"><h1><b>Dirección de envio</b></h1></th>
+		</tr>
+
+		<tr>
+			<th class="cinta"><h2><b>Calle</b></h2></th>
+			<th class="cinta"><h2><b>No. Ext</b></h2></th>
+			<th class="cinta"><h2><b>No. Int</b></h2></th>
+			<th class="cinta"><h2><b>Colonia</b></h2></th>
+			<th class="cinta"><h2><b>Ciudad</b></h2></th>
+		    <th class="cinta"><h2><b>Estado</b></h2></th>
+		    <th class="cinta"><h2><b>C.P.</b></h2></th>
+		</tr>
+		<?php
+		            echo '<td><h4><b>'.$calle.'</h4></b></td>';
+		            echo '<td># '.$numext.'</td>';
+		            echo '<td># '.$numint.'</td>';
+		            echo '<td>'.$colonia.'</td>';
+		            echo '<td>'.$ciudad.'</td>';
+		            echo '<td>'.$estado.'</td>';
+		            echo '<td>'.$cp.'</td>';
+		            echo '</tr>';
+    
+		?>
+		<tr><th></th>
+		</tr>
+
+			
+		<tr><th><a href="AceptarCompra.php">Comprar</th></tr>
+
+
+	</table>
+ </body>
+ </html>
 
 

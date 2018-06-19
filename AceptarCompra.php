@@ -1,20 +1,14 @@
+<?php include "barra.php"; include"Conexion.php"; ?>
 <?php
-include "Conexion.php";
-session_start();
-
-	$idCompra=$_POST['idp'];
-	$consulta=mysqli_query($conexion, "select * from carrito where id_carrito = $idCompra");
-	$resultCompra=mysqli_fetch_array($consulta);
-	$id = $resultCompra['prodid'];
-	
-	$consultaProducto=mysqli_query($conexion, "select * from producto where prodid=$id");
-	$resultProducto=mysqli_fetch_array($consultaProducto);
-
 	$usuario = $_SESSION['id_usuario'];
 	$consultaUsuario= mysqli_query($conexion, "select * from usuario where id_usuario=$usuario");
 	$resultUsuario=mysqli_fetch_array($consultaUsuario);
 	$correo = $resultUsuario['correo'];
 	$nombusu = $resultUsuario['usuario'];
+	$calle = $resultUsuario['calle'];
+	$total = $_SESSION['total'];
+	$cantidad = $_SESSION['cantidad'];
+
 	$asunto="MooCouture";
 		$j = 0;
 		$dia = date("d");
@@ -31,10 +25,43 @@ session_start();
 		 	
 		 	$fecha3 = date("d M Y", mktime(0,0,0,$mes,($dia + $j),$ano));
 		 }
-echo $fecha;
-echo $fecha3;
-	$Todo= $nombusu.", su pedido ha sido enviado. Pedido: ".$resultProducto['nombre'].". Precio: ".$resultProducto['precio'].". Cantidad: ".$resultCompra['cantidad'].". Precio total: ".$resultProducto['precio']*$resultCompra['cantidad'].". Su pedido fue solicitado el ".$fecha. " y será entregado dentro de tres días hábiles:".$fecha3.". Gracias!";
-	if(mail($correo, $asunto, $Todo))
+
+ 
+	$var=explode(",",$_COOKIE["carrito"]);
+    $cantidad_prod=count($var);
+    $error=0;
+    $valores= array_count_values($var);
+
+    $ids=array_unique($var);
+
+    $s= "INSERT INTO pedidos VALUES(NULL, $usuario, '$fecha', '$fecha3', $total, '$calle', $cantidad, 0)";
+
+     if(mysqli_query($conexion,$s))
+        {
+        	$cons_t=mysqli_query($conexion,'SELECT * FROM pedidos ORDER BY id_pedido DESC LIMIT 1');
+            $ti=mysqli_fetch_assoc($cons_t);
+            $ticket=$ti["id_pedido"];
+            $_SESSION["id_pedido"]=$ticket;
+            foreach ($ids as $restar) {
+                $cant=$valores[$restar];
+                $b="SELECT * FROM producto WHERE prodid=".$restar;
+                $busc_sql=mysqli_query($conexion,$b);
+                if(mysqli_num_rows($busc_sql)==1)
+                {
+                    $prod=mysqli_fetch_assoc($busc_sql);
+                    $total=$prod["stock"]-$cant;
+                    $act="UPDATE producto SET stock = $total WHERE prodid = $restar";
+                    mysqli_query($conexion,$act);
+                }
+                
+            }
+            setcookie("carrito","",time() + (10), "/");
+            unset($_COOKIE["carrito"]);
+        }
+
+	$Todo= $nombusu.", su pedido ha sido enviado. Productos: ".$_SESSION['cantidad'].". Precio: ".$_SESSION['total'].". Su pedido fue solicitado el ".$fecha. " y será entregado dentro de tres días hábiles:".$fecha3.". Gracias!";
+
+	if(mail($correo, $asunto, $Todo, "From: moocouture@gmail.com"))
 	{
 		echo "<script>alert('Correo enviado al servidor');</script>";
 	}
@@ -42,10 +69,5 @@ echo $fecha3;
 	{
 		echo "<script>alert('No se ha podido enviar el correo enviado al servidor');</script>";
 	}
-	header('Location: Carrito.php');
-	
-$stockfinal = $resultProducto['stock'] - $resultCompra['cantidad'];
-mysqli_query($conexion,"UPDATE producto set stock=$stockfinal where prodid = $id");
-$borrarcarro = $resultCompra['id_carrito']; 
-mysqli_query($conexion,"DELETE FROM carrito WHERE id_carrito = $borrarcarro")
+	header("Location: index.php");
 ?>
