@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-06-2018 a las 21:38:10
--- Versión del servidor: 10.1.30-MariaDB
--- Versión de PHP: 7.2.2
+-- Tiempo de generación: 19-06-2018 a las 07:22:10
+-- Versión del servidor: 10.1.29-MariaDB
+-- Versión de PHP: 7.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -44,27 +44,6 @@ INSERT INTO `admin` (`id_admin`, `usuario`, `contra`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `carrito`
---
-
-CREATE TABLE `carrito` (
-  `id_carrito` int(11) NOT NULL,
-  `prodid` int(11) DEFAULT NULL,
-  `precio` float DEFAULT NULL,
-  `cantidad` int(11) DEFAULT NULL,
-  `id_usuario` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `carrito`
---
-
-INSERT INTO `carrito` (`id_carrito`, `prodid`, `precio`, `cantidad`, `id_usuario`) VALUES
-(14, 15, 110, 0, 10);
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `descuentos`
 --
 
@@ -82,6 +61,37 @@ INSERT INTO `descuentos` (`id_descuento`, `cantidad`, `porcentaje`) VALUES
 (1, 7, 13),
 (2, 10, 20),
 (3, 15, 30);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pedidos`
+--
+
+CREATE TABLE `pedidos` (
+  `id_pedido` int(11) NOT NULL,
+  `id_usuario` int(11) DEFAULT NULL,
+  `fechapedido` date DEFAULT NULL,
+  `fechaentrega` date DEFAULT NULL,
+  `total` int(11) DEFAULT NULL,
+  `direccion` varchar(200) DEFAULT NULL,
+  `cantidad` int(11) DEFAULT NULL,
+  `estado` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `pedidos`
+--
+
+INSERT INTO `pedidos` (`id_pedido`, `id_usuario`, `fechapedido`, `fechaentrega`, `total`, `direccion`, `cantidad`, `estado`) VALUES
+(2, 10, '2018-06-18', '2018-06-20', 200, 'Alberto Cinta', 1, 2),
+(3, 10, '2018-06-18', '2018-06-20', 200, 'Alberto Cinta', 1, 2),
+(4, 10, '2018-06-18', '2018-06-20', 400, 'Alberto Cinta', 2, 2),
+(5, 10, '2018-06-18', '2018-06-20', 400, 'Alberto Cinta', 2, 0),
+(6, 10, '2018-06-18', '2010-06-20', 230, 'Alberto Cinta', 1, 2),
+(7, 10, '2018-06-18', '2018-06-20', 200, 'Alberto Cinta', 1, 0),
+(8, 10, '2018-06-18', '2018-06-20', 1000, 'Alberto Cinta', 5, 0),
+(9, 10, '2018-06-19', '1970-01-06', 200, 'Alberto Cinta', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -134,8 +144,8 @@ INSERT INTO `producto` (`prodid`, `nombre`, `descripcion`, `stock`, `precio`, `i
 (36, 'Bolso cartera', 'Bolso pequeño color beige con correa de acero y doble cierre de metal. Imitacion piel. Hecho en China.', 4, 140, 'img/bolso2.jpg', 8),
 (37, 'Collar candado', 'Collar con corazón en forma de candado, argollas y estoperoles de metal. Color negro, piel sintética.', 5, 90, 'img/collar3.jpg', 5),
 (38, 'Pulsera numerales', 'Pulsera de acero inoxidable con inscripciones de numerales romanos. Hecha en México.', 5, 180, 'img/bisuteria7.jpg', 7),
-(39, 'Vestido manga corta', 'Vestido negro con cuello color blanco de manga corta estilo gótico. Hecho 100% de algodón. Hecho en Vietnam.', 5, 230, 'img/vestido5.jpg', 2),
-(40, 'Bolso de mano', 'Bolso de mano color rosa claro con estoperoles y cierre metalico. Hecho en Vietnam.', 12, 200, 'img/bolso3.jpg', 8);
+(39, 'Vestido manga corta', 'Vestido negro con cuello color blanco de manga corta estilo gótico. Hecho 100% de algodón. Hecho en Vietnam.', 4, 230, 'img/vestido5.jpg', 2),
+(40, 'Bolso de mano', 'Bolso de mano color rosa claro con estoperoles y cierre metalico. Hecho en Vietnam.', 2, 200, 'img/bolso3.jpg', 8);
 
 -- --------------------------------------------------------
 
@@ -196,7 +206,8 @@ INSERT INTO `usuario` (`id_usuario`, `nombre`, `apellidop`, `apellidom`, `correo
 (10, 'Ivan', 'Chavez', 'Vaca', 'chentauren@gmail.com', 'Chentauren', 'Chentauren.4', 'Alberto Cinta', '108', '1', 'Rinconadas del Auditorio', 'Zapopan', 'Jalisco', '45180', '1111111111111111', '111', '11/21'),
 (11, 'Esteban', 'Romo', 'Esparza', 'esteban.romo.98@gmail.com', 'vamanos', 'Paperspls', 'Buga', '1', '1', 'Bugambilias', 'Zapopan', 'Jalisco', '45100', '456783945032', '567', '12/21'),
 (12, 'Rodolfo', 'Garcia', 'no se', 'rodo.gr99@gmail.com', 'rodolfo', '123', 'ds', 'asdSDAF', 'ASDASDF', 'SDAFASDFGDS', 'SDFASFA', 'SADDFASFD`', 'SFSAGFDSFGDAF', 'SADFASDFG', 'SADFGASDF', 'SAFDASFASDF'),
-(13, 'Tripod', 'RP', 'Mama', 'Toypreso@gmail.com', 'Manolo', 'Vacamoo', 'South Rozhok', '770', '45', 'Schoolyard', 'Rozhok', 'Erangel', '12545', '4444 1345 1233 1231', '667', '09/21');
+(13, 'Tripod', 'RP', 'Mama', 'Toypreso@gmail.com', 'Manolo', 'Vacamoo', 'South Rozhok', '770', '45', 'Schoolyard', 'Rozhok', 'Erangel', '12545', '4444 1345 1233 1231', '667', '09/21'),
+(14, 'Testtar', 'testtar', 'testtar', 'testtar@gmail.com', 'testtar', 'testtar', 'testtar', '1', '2', 'testtar', 'testtar', 'testtar', 'testtar', '2', '23', '2');
 
 --
 -- Índices para tablas volcadas
@@ -209,18 +220,16 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
--- Indices de la tabla `carrito`
---
-ALTER TABLE `carrito`
-  ADD PRIMARY KEY (`id_carrito`),
-  ADD KEY `prodid` (`prodid`),
-  ADD KEY `id_usuario` (`id_usuario`);
-
---
 -- Indices de la tabla `descuentos`
 --
 ALTER TABLE `descuentos`
   ADD PRIMARY KEY (`id_descuento`);
+
+--
+-- Indices de la tabla `pedidos`
+--
+ALTER TABLE `pedidos`
+  ADD PRIMARY KEY (`id_pedido`);
 
 --
 -- Indices de la tabla `producto`
@@ -252,16 +261,16 @@ ALTER TABLE `admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `carrito`
---
-ALTER TABLE `carrito`
-  MODIFY `id_carrito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
 -- AUTO_INCREMENT de la tabla `descuentos`
 --
 ALTER TABLE `descuentos`
   MODIFY `id_descuento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `pedidos`
+--
+ALTER TABLE `pedidos`
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
@@ -279,18 +288,11 @@ ALTER TABLE `tipos`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `carrito`
---
-ALTER TABLE `carrito`
-  ADD CONSTRAINT `carrito_ibfk_1` FOREIGN KEY (`prodid`) REFERENCES `producto` (`prodid`),
-  ADD CONSTRAINT `carrito_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
 
 --
 -- Filtros para la tabla `producto`
