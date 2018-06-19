@@ -11,11 +11,10 @@
 
 	$asunto="MooCouture";
 		$j = 0;
+		$fecha=date("Y-m-d");
+		$mes = date("m");
 		$dia = date("d");
-		$mes = date("M");
 		$ano = date("Y");
-		 $fecha = $dia." ".$mes." ".$ano;
-		 $mes = date("m");
 
 		 for ($i = 0; $i < 3 ; $i++) { 
 		 	do{
@@ -23,7 +22,7 @@
 		 		$j++;
 		 	}while($day == 5 || $day == 6);
 		 	
-		 	$fecha3 = date("d M Y", mktime(0,0,0,$mes,($dia + $j),$ano));
+		 	$fecha3 = date("Y-m-d", mktime(0,0,0,$mes,($dia + $j),$ano));
 		 }
 
  
@@ -61,7 +60,7 @@
 
 	$Todo= $nombusu.", su pedido ha sido enviado. Productos: ".$_SESSION['cantidad'].". Precio: ".$_SESSION['total'].". Su pedido fue solicitado el ".$fecha. " y será entregado dentro de tres días hábiles:".$fecha3.". Gracias!";
 
-	if(mail($correo, $asunto, $Todo, "From: moocouture@gmail.com"))
+	if(mail($correo, $asunto, $Todo))
 	{
 		echo "<script>alert('Correo enviado al servidor');</script>";
 	}

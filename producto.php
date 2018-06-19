@@ -53,8 +53,10 @@
 
 
 <?php
-	if(!isset($_SESSION['id_usuario']) || !isset($_SESSION['id_admin']) ){
-        echo "<script Language='JavaScript'>document.getElementById('cambiar').style.display='none';</script>";
+	if(!isset($_SESSION['id_usuario'])){
+		if(!isset($_SESSION['id_admin'])){
+        	echo "<script Language='JavaScript'>document.getElementById('cambiar').style.display='none';</script>";
+    	}
     }
 	if(isset($_SESSION['id_usuario'])){
         echo "<script Language='JavaScript'>document.getElementById('cambiar').style.display='none';</script>";

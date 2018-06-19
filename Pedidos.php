@@ -9,6 +9,7 @@
             <td class="cinta">Fecha solicitud</td>
             <td class="cinta">Fecha entrega</td>
             <td class="cinta">Estado</td>
+            <td class="cinta">Confirmar entrega</td>
           </tr>
           ';
 
@@ -37,6 +38,7 @@
 		echo "<td>".$result2['fechapedido']."</td>";
 		echo "<td>".$result2['fechaentrega']."</td>";
 		echo "<td>".$estado2."</td>";
+		echo "<td><a href='ConfirmarPedido.php?id=$id'>Confirmar</a></td>";
 		echo "</tr>";
 	}
 	echo "</table>";
