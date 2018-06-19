@@ -3,48 +3,42 @@
 <head>
 	<title>Carrito</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="css/carrito.css">
+  <link rel="stylesheet" type="text/css" href="css/carrito1.css">
    <script src="js/jquery.min.js"></script>
    <script type="text/javascript">
 	$(document).ready(function(){
 	    $(".Close").click(function(){
 	        $(".overlay").fadeOut(400);
+	         $(".popup").fadeOut(400);
 	    });
 	    $(".Abrir").click(function(){
-	        id=$(this).attr("id");
-
-		    	$("#idp").val(id);
-		    	$.ajax({
-
-		    		url:'Comprar.php',
-		    		method:'POST',
-		    		data: $("#idp").serialize(),
-		    		 success: function(res){
-		    		 	$(".Com").html(res);
-		    		 }	
-		    		});
-		        $(".overlay").fadeIn(400);
+		    $(".overlay").fadeIn(400);
+	        $(".popup").fadeIn(400);
 	    });
 });
 </script>
 </head>
 <body>
 
+
+<div class="tabla">
 <?php
 	if(isset($_COOKIE["carrito"]))
 	{ 
 ?>
+<table>
+  <caption>Carrito</caption>
+  <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Cantidad</th>
+      <th>Precio</th>
+      <th>Total</th>
+    </tr>
+  </thead>
 
-<div class="Lista">
-	<?php
-			echo '<table>
-          		<tr>
-            <td class="cinta">Nombre de articulo</td>
-            <td class="cinta">Cantidad</td>
-            <td class="cinta">Precio</td>
-          </tr>
-          ';
-
+  <tbody>
+    <?php 
           	$error=0;
 	        $subtotal=0;
 	        $carrito=explode(",",$_COOKIE["carrito"]);
@@ -116,10 +110,11 @@
 						}
 						
 						
-                        echo '<td style="text-align: center;  vertical-align: middle;"><b>'.$prod['nombre'].'</td>';
-                        echo '<td style="text-align: center;  vertical-align: middle;">'.$valores[$product].'</td>';
-                        echo '<td style="text-align: center;  vertical-align: middle;">$'.$prod['precio'].'</td>';
+                        echo '<td><b>'.$prod['nombre'].'</td>';
+                        echo '<td>'.$valores[$product].'</td>';
+                        echo '<td>$'.$prod['precio'].'</td>';
 						$subtotal+=($prod['precio']*$valores[$product]);
+						echo '<td>$'.$prod['precio']*$valores[$product].'</td>';
 						
                     }
 					echo '</tr>';
@@ -136,44 +131,43 @@
 					
 				}
 	?>
-	<tr><th></th>
+	 <tr>
+                    <th >Cantidad total:</th>
+                    <th  ><?php echo $_SESSION["cantidad"] ?></th>
+					<th >Subtotal:</th>
+                    <th >$<?php echo number_format($subtotal); ?></th>
                 </tr>
-                <tr>
-                    <th colspan="1" style="text-align: center;  vertical-align: middle;"><h3><b>Cantidad:</b></h3></th>
-                    <th colspan="1" style="text-align: center;  vertical-align: middle;"><h3><b><?php echo $_SESSION["cantidad"] ?></b></h3></th>
-					<th colspan="2" style="text-align: center;  vertical-align: middle;"><h3><b>Subtotal:</b></h3></th>
-                    <th colspan="2" style="text-align: center;  vertical-align: middle;"><h3><b>$<?php echo number_format($subtotal); ?></b></h3></th>
-                </tr>
-				<tr><th></th>
-                </tr>
-				<?php
+                <?php
 				if($reba>0)
 				{
 				?>
                 <tr>
-                    <th colspan="1" style="text-align: center;  vertical-align: middle;"><h3><b>Descuento:</b></h3></th>
-                    <th colspan="1" style="text-align: center;  vertical-align: middle;"><h3><b><?php echo $descuento ?>%</b></h3></th>
-					<th colspan="2" style="text-align: center;  vertical-align: middle;"><h3><b>Rebajado:</b></h3></th>
-                    <th colspan="2" style="text-align: center;  vertical-align: middle;"><h3><b>-$<?php echo number_format($reba) ?></b></h3></th>
+                    <th >Descuento:</th>
+                    <th ><?php echo $descuento ?>%</th>
+					<th >Rebajado:</b></h3></th>
+                    <th >-$<?php echo number_format($reba) ?></th>
 				</tr>
 				<?php
 				}
 				?>
-				
-				<tr><th></th>
+  </tbody>
+  <tfoot>
+  <tr>
+                    <th colspan="3">Total:</th>
+                    <th>$<?php echo number_format($_SESSION["total"]) ?></th>
                 </tr>
-                <tr>
-                    <th colspan="3" style="text-align: center;  vertical-align: middle;"><h3><b>Total:</b></h3></th>
-                    <th colspan="3" style="text-align: center;  vertical-align: middle;"><h3><b>$<?php echo number_format($_SESSION["total"]) ?></b></h3></th>
-                </tr>
-				<tr><th></th></tr>
+   
+  </tfoot>
+</table>
+
+
 
 				<?php
 				if(!isset($_SESSION["usuario"]))
 				{
-					echo'<tr><th colspan="6"><div>
+					echo'
 					<h4><strong>Inicia Sesión!</strong> Debes de iniciar sesión para poder comprar.</h4>
-				  </div></th></tr>';
+				  ';
 				}
 				else
 				{
@@ -185,13 +179,12 @@
 						echo '<tr class="active"><th colspan="6"><button class="btn btn-lg btn-block" onclick="confirmar()" disabled> SIGUIENTE <i class="fas fa-arrow-right"></i></button></th></tr>';
 					}
 					else {
-						echo '<tr><th colspan="6"><a href="comprar.php" class="Abrir">Comprar</th></tr>';
+						echo '<tr><th colspan="6"><a class="Abrir">Comprar</a></th></tr>';
 					}
 					
 				}
 				?>
 
-				</table>
 
 	<?php
 	}
@@ -204,15 +197,16 @@
 	?>
 
 </div>
+
 </body>
 <div class="overlay">
-	<input type="hidden" id="idp" name="idp">
 	<div class="popup">
 		<div class="Pop">
 				<h1>Comprar <samp class="Close">x</samp></h1>
 				<fieldset >
 				<div class="Com">
-					
+					<p>Esta seguro que desea hacer esta compra?</p>
+					<a href="AceptarCompra.php">Aceptar</a>
 				</div>
 				</fieldset>
 		</div>

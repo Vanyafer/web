@@ -12,7 +12,7 @@
 <head>
 	<title>Descuentos</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/contacto.css">
+	<link rel="stylesheet" type="text/css" href="css/descuentos.css">
 </head>
 <body>
 <?php include "barra.php"; ?>
@@ -20,10 +20,12 @@
 	<form action="Descuentos.php" method="POST">
 		<h1>Descuentos</h1>
 		<table>
-			<tr>
-				<th>Cantidad</th>
-				<th>Porcentaje</th>
-			</tr>
+			<thead>
+		    <tr>
+		      <th>Cantidad</th>
+		      <th>Descuento</th>
+		    </tr>
+		  </thead>
 			<tr>
 				<td><input type="number" name="Desc1" value="<?php echo $result1['cantidad']?>"></td>
 				<td><input type="number" name="Desc2" value="<?php echo $result1['porcentaje']?>"></td>

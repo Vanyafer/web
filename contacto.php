@@ -15,15 +15,22 @@
 
 <div id="Formulario">
 	<form action="contacto.php" method="POST">
-		<h1>Contacto</h1>
-		<p>Nombre</p>
-		<input type="text" name="Nombre" id="Nombre" value="Nombre" onBlur="if(this.value=='')this.value='Nombre'" onFocus="if(this.value=='Nombre')this.value='' ">
-		<p>Correo</p>
-		 <input type="email" name="Correo" id="Correo" value="Correo" onBlur="if(this.value=='')this.value='Correo'" onFocus="if(this.value=='Correo')this.value='' ">
-		 <p>Telefono</p>
-		 <input type="text" name="Telefono" id="Telefono" value="Telefono" onBlur="if(this.value=='')this.value='Telefono'" onFocus="if(this.value=='Telefono')this.value='' ">
-		 <p>Mensaje</p>
-		 <input type="text" name="Mensaje" id="Mensaje" onBlur="if(this.value=='')this.value='Mensaje'" onFocus="if(this.value=='Mensaje')this.value='' ">
+    <table>
+        <tr>
+            <th colspan="2"><input type="text" name="Nombre" id="Nombre" value="Nombre" onBlur="if(this.value=='')this.value='Nombre'" onFocus="if(this.value=='Nombre')this.value='' "></th>
+        </tr>
+        <tr>
+            <th colspan="2"><input type="email" name="Correo" id="Correo" value="Correo" onBlur="if(this.value=='')this.value='Correo'" onFocus="if(this.value=='Correo')this.value='' "></th>
+        </tr>
+        <tr>
+            <th colspan="2"><input type="text" name="Telefono" id="Telefono" value="Telefono" onBlur="if(this.value=='')this.value='Telefono'" onFocus="if(this.value=='Telefono')this.value='' "></th>
+
+        </tr>
+        <tr>
+            <th>Mensaje:</th>
+            <th><textarea  name="Mensaje" id="Mensaje"></textarea></th>
+        </tr>
+    </table>
 		 <p></p>
 		 <input type="submit" name="Enviar" value="Enviar">
 	</form>

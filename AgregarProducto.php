@@ -11,22 +11,48 @@
 <body>
 <?php include "barra.php"; ?>
 <div id="Formulario">
-	<form action="AgregarProducto.php" method="POST">
-		<h1>Agregar un producto</h1>
-		<p>Nombre</p>
-		<input type="text" name="Nombre" id="Nombre" value="">
-		<p>Descripcion</p>
-		<input type="text" name="Descripcion" id="Descripcion" value="">
-		<p>Stock</p>
-		<input type="number" name="Stock" id="Stock" value="">
-		<p>Precio en MXN</p>
-		<input type="number" name="Precio" id="Precio" value="">
-		<p>Precio en MXN</p>
-		<input type="number" name="Descuento" id="Descuento" value="">
-		<p>Imagen</p>
-		<input type="file" name="image" id="image">
-		<p>Tipo</p>
-		<input type="number" name="Tipo" id="Tipo" value="">
+	<form enctype="multipart/form-data" action="AgregarProducto.php" method="POST">
+		<h1>Agregar un producto:</h1>
+		<table>
+			<tr>
+				<th colspan="1">Nombre: </th>
+				<th colspan="3"> <input type="text" name="Nombre" id="Nombre" value=""></th>
+			</tr>
+			<tr>
+				<th colspan="1">Descripcion:</th>
+				<th colspan="3"><input type="text" name="Descripcion" id="Descripcion" value=""></th>
+			</tr>
+			<tr>
+				<th colspan="1">Stock:</th>
+				<th colspan="1"><input type="number" name="Stock" id="Stock" value="1" min="1"></th>
+			
+				<th colspan="1" class="precio"> Precio:</th>
+				<th colspan="1"><input type="number" name="Precio" id="Precio"  value="1" min="1"></th>
+			</tr>
+			<tr>
+				<th colspan="1">Imagen: </th>
+				<th colspan="3"><input type="file" name="image" id="image"></th>
+			</tr>
+			<tr>
+				<th colspan="1">Tipo:</th>
+				<th colspan="3">
+					<select name="Tipo" id="Tipo">
+						<option value="1">Blusa</option>
+						<option value="2">Vestido</option>
+						<option value="3">Pantalon</option>
+						<option value="4">Falda</option>
+						<option value="5">Collar</option>
+						<option value="6">Lentes</option>
+						<option value="7">Bisuteria</option>
+						<option value="8">Bolso</option>
+					</select>
+				</th>
+			</tr>
+		</table>
+		
+		
+	
+		
 		<p></p>
 		<input type="submit" value="Aceptar">
 	</form>
@@ -42,7 +68,6 @@
 		$descripcion=mysqli_real_escape_string($conexion, $_POST['Descripcion']);
 		$stock=mysqli_real_escape_string($conexion, $_POST['Stock']);
 		$precio=mysqli_real_escape_string($conexion, $_POST['Precio']);
-		$descuento=mysqli_real_escape_string($conexion, $_POST['Descuento']);
 		$tipo=mysqli_real_escape_string($conexion, $_POST['Tipo']);
 
 		$folder="img/";
