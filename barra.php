@@ -39,16 +39,14 @@ session_start();
         <li><a id="registroid" href="registro.php">Registrarse</a></li>
         <li><a id="sesionid" href="sesion.php">Iniciar Sesión</a></li>
         <li><a id="cerses" href="cerrarsesion.php">Cerrar Sesión</a></li>
-        <li><a href="contacto.php">Contacto</a></li>
+        <li><a id="contact" href="contacto.php">Contacto</a></li>
         <li><a id="carrid" href="Carrito.php">Carrito</a></li>
+        <li><a id="pediusu" href="PedidosUsuario.php">Pedidos</a></li>
         <li><a id="agregar" href="AgregarProducto.php">Agregar producto</a></li>
         <li><a id="descu" href="Descuentos.php">Descuentos</a></li>
         <li><a id="pedi" href="Pedidos.php">Pedidos</a></li>
         <li class="esconder"><a href="index.php">Inicio</a></li>
 
-        <li class="esconder">
-          <a href="#">Ofertas</a>
-        </li> 
         <li class="esconder">
           <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
             Ropa
@@ -121,14 +119,17 @@ session_start();
         echo "<script Language='JavaScript'>document.getElementById('registroid').style.display='none';</script>";
         echo "<script Language='JavaScript'>document.getElementById('sesionid').style.display='none';</script>";
         echo "<script Language='JavaScript'>document.getElementById('cerses').style.visibility='visible';</script>";
-        echo "<script Language='JavaScript'>document.getElementById('carrid').style.visibility='visible';</script>";
+        echo "<script Language='JavaScript'>document.getElementById('carrid').style.display='none';</script>";
+        echo "<script Language='JavaScript'>document.getElementById('contact').style.display='none';</script>";
         echo "<script Language='JavaScript'>document.getElementById('agregar').style.visibility='visible';</script>";
+        echo "<script Language='JavaScript'>document.getElementById('pediusu').style.display='none';</script>";
       }
       else{
         echo "<script Language='JavaScript'>document.getElementById('cerses').style.display='none';</script>";
         echo "<script Language='JavaScript'>document.getElementById('agregar').style.display='none';</script>";
         echo "<script Language='JavaScript'>document.getElementById('descu').style.display='none';</script>";
         echo "<script Language='JavaScript'>document.getElementById('pedi').style.display='none';</script>";
+        echo "<script Language='JavaScript'>document.getElementById('pediusu').style.display='none';</script>";
       }
     }
     ?>

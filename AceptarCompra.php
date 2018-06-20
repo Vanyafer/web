@@ -33,7 +33,7 @@
 
     $ids=array_unique($var);
 
-    $s= "INSERT INTO pedidos VALUES(NULL, $usuario, '$fecha', '$fecha3', $total, '$calle', $cantidad, 0)";
+    $s= "INSERT INTO pedidos VALUES(NULL, $usuario, '$fecha', '$fecha3', $total, '$calle', $cantidad, 0, 'placeholder', 'placeholder')";
 
      if(mysqli_query($conexion,$s))
         {

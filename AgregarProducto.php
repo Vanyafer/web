@@ -6,7 +6,7 @@
 <head>
 	<title>Agregar</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/contacto.css">
+	<link rel="stylesheet" type="text/css" href="css/descuentos.css">
 </head>
 <body>
 <?php include "barra.php"; ?>

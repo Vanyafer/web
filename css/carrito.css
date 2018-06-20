@@ -39,7 +39,6 @@ tbody tr td:nth-child(2) {
 
 tbody tr td:nth-child(3),
 tbody tr td:nth-child(4) {
-  text-align: right;
   font-family: monospace;
   font-size: 14px;
 }
@@ -47,7 +46,6 @@ tbody tr td:nth-child(4) {
 tfoot {
   background: #92278f;
   color: white;
-  text-align: right;
   width: 25px;
 }
 

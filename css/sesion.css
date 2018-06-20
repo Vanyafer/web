@@ -9,7 +9,7 @@
 	padding-bottom: 20px;
 }
 
-input[type="text"],input[type="password"]{
+input[type="text"],input[type="password"], input[type="email"],{
 
 	width: 50%;
 	line-height: 15px;
@@ -30,3 +30,14 @@ input[type="submit"] {
 
 input[type="submit"]:hover { background: #92278E; }
 
+table{
+	margin: auto;	
+}
+thead {
+  background: #92278f;
+  color: white;
+}
+th,
+td {
+  padding: 5px 10px;
+}

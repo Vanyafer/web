@@ -4,6 +4,7 @@
 	<title>Contacto</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" type="text/css" href="css/contacto.css">
+    <link rel="stylesheet" type="text/css" href="css/sesion.css">
     <script src="js/jquery.min.js"></script>
    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOgXcjv2qNk2QVFTGT263zXjJTrzRq6fA&callback=initMap"
     async defer></script>
@@ -15,22 +16,10 @@
 
 <div id="Formulario">
 	<form action="contacto.php" method="POST">
-    <table>
-        <tr>
-            <th colspan="2"><input type="text" name="Nombre" id="Nombre" value="Nombre" onBlur="if(this.value=='')this.value='Nombre'" onFocus="if(this.value=='Nombre')this.value='' "></th>
-        </tr>
-        <tr>
-            <th colspan="2"><input type="email" name="Correo" id="Correo" value="Correo" onBlur="if(this.value=='')this.value='Correo'" onFocus="if(this.value=='Correo')this.value='' "></th>
-        </tr>
-        <tr>
-            <th colspan="2"><input type="text" name="Telefono" id="Telefono" value="Telefono" onBlur="if(this.value=='')this.value='Telefono'" onFocus="if(this.value=='Telefono')this.value='' "></th>
-
-        </tr>
-        <tr>
-            <th>Mensaje:</th>
-            <th><textarea  name="Mensaje" id="Mensaje"></textarea></th>
-        </tr>
-    </table>
+        <input type="text" name="Nombre" id="Nombre" value="Nombre" onBlur="if(this.value=='')this.value='Nombre'" onFocus="if(this.value=='Nombre')this.value='' ">
+        <input type="email" name="Correo" id="Correo" value="Correo" onBlur="if(this.value=='')this.value='Correo'" onFocus="if(this.value=='Correo')this.value='' ">
+        <input type="text" name="Telefono" id="Telefono" value="Telefono" onBlur="if(this.value=='')this.value='Telefono'" onFocus="if(this.value=='Telefono')this.value='' ">
+        <input type="text" name="Mensaje" id="Mensaje" value="Mensaje" onBlur="if(this.value=='')this.value='Mensaje'" onFocus="if(this.value=='Mensaje')this.value='' ">
 		 <p></p>
 		 <input type="submit" name="Enviar" value="Enviar">
 	</form>

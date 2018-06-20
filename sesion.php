@@ -13,7 +13,7 @@
 		<form action="sesion.php" method="POST">
 			<h1>Iniciar Sesión</h1>
 			<p>Usuario</p>
-			<input type="text" name="Usuario" id="Usuario" value="" onBlur="if(this.value=='')this.value='Uusario'" onFocus="if(this.value=='Usuario')this.value='' ">
+			<input type="text" name="Usuario" id="Usuario" value="" onBlur="if(this.value=='')this.value='Usuario'" onFocus="if(this.value=='Usuario')this.value='' ">
 			<p>Contraseña</p>
 			<input type="password" name="Password" value="" onBlur="if(this.value=='')this.value='Password'" onFocus="if(this.value=='Password')this.value='' "> 
 			<p></p>

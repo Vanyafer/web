@@ -24,9 +24,6 @@
  
       <ul class="menu-lista">
         <li class="nav-item">
-          <a href="#">Ofertas</a>
-        </li> 
-        <li class="nav-item">
           <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
             Ropa
           </a>

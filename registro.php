@@ -46,9 +46,9 @@ include 'Conexion.php';
 		<p>Calle/Avenida</p>
 		<input type="text" name="Calle" id="Calle">
 		<p>Número Interior</p>
-		<input type="text" name="NumInt" id="NumInt">
+		<input type="number" name="NumInt" id="NumInt">
 		<p>Número Exterior</p>
-		<input type="text" name="NumExt" id="NumExt">
+		<input type="number" name="NumExt" id="NumExt">
 		<p>Colonia</p>
 		<input type="text" name="Colonia" id="Colonia">
 		<p>Ciudad/Municipio</p>
@@ -56,11 +56,11 @@ include 'Conexion.php';
 		<p>Estado</p>
 		<input type="text" name="Estado" id="Estado">
 		<p>Código postal</p>
-		<input type="text" name="CP" id="CP">
+		<input type="number" name="CP" id="CP">
 		<p>Número de tarjeta de crédito</p>
-		<input type="text" name="CC" id="CC">
+		<input type="number" name="CC" id="CC">
 		<p>CCV</p>
-		<input type="text" name="CCV" id="CCV">
+		<input type="number" name="CCV" id="CCV">
 		<p>Fecha de expiración</p>
 		<input type="text" name="Fecha" id="Fecha">
 		<p></p>
@@ -138,12 +138,11 @@ include 'Conexion.php';
 				var s = $('#CCV').val();
 				var t = $('#Fecha').val();
 
-				var num = CC.val();
 				var cifra = null;
 				var cifra_cad = null;
 				var suma = 0;
-				for (var i=0; i < num.length; i+=2){
-					cifra = parseInt(num.charAt(i))*2;
+				for (var i=0; i < r.length; i+=2){
+					cifra = parseInt(r.charAt(i))*2;
 					if (cifra > 9){ 
 						cifra_cad = cifra.toString();
 						cifra = parseInt(cifra_cad.charAt(0)) + 
@@ -151,8 +150,8 @@ include 'Conexion.php';
 					}
 					suma+=cifra;
 				}
-				for (var i=1; i < num.length; i+=2){
-					suma += parseInt(num.charAt(i));
+				for (var i=1; i < r.length; i+=2){
+					suma += parseInt(r.charAt(i));
 				}
 
 
@@ -195,6 +194,10 @@ include 'Conexion.php';
 				}
 				if (s == "") {
 	    			alert("Por favor ingrese su CCV");
+					return false;
+				}
+				if (s.length >3 || s.length <3) {
+	    			alert("CCV inválido");
 					return false;
 				}
 				if (t == "") {

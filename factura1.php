@@ -56,6 +56,51 @@ $usuario = $_SESSION['id_usuario'];
         }
     }
 
+    function FancyTable($header, $data)
+    {
+        // Colores, ancho de línea y fuente en negrita
+        $this->SetFillColor(80,80,80);
+        $this->SetTextColor(255);
+        $this->SetDrawColor(128,128,128);
+        $this->SetLineWidth(.3);
+        $this->SetFont('','B');
+        // Cabecera
+        $margin = 10;
+        $this->ww = array(85, 40, 30, 35, 1);
+        for($i=0;$i<count($header)-1;$i++)
+        $this->Cell($this->ww[$i],7,$header[$i],1,0,'C',true);
+        $this->Ln();
+        // Restauración de colores y fuentes
+        $this->SetTextColor(0);
+        $this->SetFont('');
+        // Datos
+        $fill = false;
+        foreach($data as $row)
+        {
+            $this->y1 = $this->GetY();
+            $this->MultiCell($this->ww[0],6,$row[0],'LR','C');
+            $pos = $margin+$this->ww[0];
+            $this->SetY($this->y1);
+            $this->SetX($pos);
+            $this->MultiCell($this->ww[1],6,$row[1],'LR','C');
+            $pos = $margin;
+            $this->y2 = $this->GetY();
+            $this->Line($pos,$this->y1,$pos,$this->y2);
+            $this->SetY($this->y1);
+            $pos+=$this->ww[0]+$this->ww[1];
+            $this->SetX($pos);
+            $this->Cell($this->ww[2],6,$row[2],'LR',0,'R');
+            $this->Line($pos,$this->y1,$pos,$this->y2);
+            $this->Cell($this->ww[3]+$this->ww[4],6,$row[3],'LR',0,'R');    
+            $pos+=$this->ww[2];
+            $pos+=$this->ww[3];
+            $pos+=$this->ww[4];
+            $this->Line($pos,$this->y1,$pos,$this->y2);        
+            $this->Line($margin,$this->y2,$pos,$this->y2);
+            $this->SetY($this->y2);
+        }
+    }
+
     function datos($act,$label)
     {
     // Arial 12
@@ -111,7 +156,7 @@ $pdf->AddPage();
                     $pdf->Ln();
                    // $pdf->titulos("Ticket #".$_SESSION["ticket"]);// guardar id de pedido
 
-                    $header=array('Producto','Cantidad','Precio','Subtotal');
+                    $header=array('Producto','Cantidad','Precio','Subtotal', '');
                     $productos = array();
                    /* foreach ($variable as $key => $value) {
                         $producto = array(); 
@@ -193,6 +238,7 @@ $pdf->AddPage();
                         $producto[2] = $prod['precio'];
                         $subtotal+=($prod['precio']*$valores[$product]);
                         $producto[3] = $prod['precio']*$valores[$product];
+                        $producto[4] = "";
 
                         $productos[] = $producto;
                         
@@ -210,10 +256,20 @@ $pdf->AddPage();
                     
                 }
                     $producto = array(); 
-                    $producto[0] = "Cantidad total";
+                    $producto[0] = "";
+                    $producto[1] = "";
+                    $producto[2] = "";
+                    $producto[3] = "";
+                    $producto[4] = "";
+
+                    $productos[] = $producto;
+
+                    $producto = array(); 
+                    $producto[0] = "Cantidad total:";
                     $producto[1] = $_SESSION["cantidad"];
-                    $producto[2]  = "Subtotal";
+                    $producto[2]  = "Subtotal:";
                     $producto[3]  = number_format($subtotal);
+                    $producto[4] = "";
                     $productos[] = $producto; 
               
                 if($reba>0)
@@ -222,6 +278,7 @@ $pdf->AddPage();
                     $producto[1] = $descuento."%";
                     $producto[2] = "Rebajado:";
                     $producto[3] = number_format($reba);
+                    $producto[4] = "";
                     $productos[] = $producto;
 
                 }
@@ -230,26 +287,31 @@ $pdf->AddPage();
                     $producto[1] = "";
                     $producto[2] = "Total:";
                     $producto[3] = number_format($_SESSION["total"]) ;
+                    $producto[4] = "";
                     $productos[] = $producto;
 
 
 
                        
-                    $pdf->BasicTable($header,$productos);
+                    $pdf->FancyTable($header,$productos);
 
                     $pdf->datos("Cantidad Articulos Vendidos: ",$venta["cantidad"]);
                     $pdf->datos("Total: $",number_format($venta["total"]));
 
                     $pdf->datos("Fecha de pedido: ",$venta["fechapedido"]);
                     $pdf->datos("Fecha de entrega: ",$venta["fechaentrega"]);
+                    $pdf->datos("Gracias por su compra", "!");
                     $pdf->AliasNbPages();
                     $filename="facturas/factura".$id."usuario".$usuario.".pdf";
 
 
-                    $pdf->Output($filename,'F');
-                    //setcookie("carrito","",time() + (10), "/");
-            //unset($_COOKIE["carrito"]);
+                    $mysqlpdf="UPDATE pedidos SET pdf = '$filename' where id_usuario = $usuario AND id_pedido = $id";
+                    $sql=mysqli_query($conexion,$mysqlpdf);
 
-                    header("location: Index.php");
+                    $pdf->Output($filename,'F');
+
+                    header("Location: xml.php?id=$id");
+
+                    
                 }
 ?>
