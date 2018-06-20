@@ -54,8 +54,8 @@
                 }
                 
             }
-            setcookie("carrito","",time() + (10), "/");
-            unset($_COOKIE["carrito"]);
+            //setcookie("carrito","",time() + (10), "/");
+            //unset($_COOKIE["carrito"]);
         }
 
 	$Todo= $nombusu.", su pedido ha sido enviado. Productos: ".$_SESSION['cantidad'].". Precio: ".$_SESSION['total'].". Su pedido fue solicitado el ".$fecha. " y será entregado dentro de tres días hábiles:".$fecha3.". Gracias!";
@@ -68,5 +68,8 @@
 	{
 		echo "<script>alert('No se ha podido enviar el correo enviado al servidor');</script>";
 	}
-	header("Location: index.php");
+
+    $x=mysqli_fetch_assoc(mysqli_query($conexion,"SELECT MAX(id_pedido) as id from pedidos"));
+    $id = $x["id"];
+	header("Location: factura1.php?id=$id");
 ?>

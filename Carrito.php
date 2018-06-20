@@ -3,7 +3,7 @@
 <head>
 	<title>Carrito</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="css/carrito1.css">
+  <link rel="stylesheet" type="text/css" href="css/carrito.css">
    <script src="js/jquery.min.js"></script>
    <script type="text/javascript">
 	$(document).ready(function(){

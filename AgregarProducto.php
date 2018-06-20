@@ -15,27 +15,28 @@
 		<h1>Agregar un producto:</h1>
 		<table>
 			<tr>
-				<th colspan="1">Nombre: </th>
-				<th colspan="3"> <input type="text" name="Nombre" id="Nombre" value=""></th>
+				<th >Nombre: </th>
+				<th > <input type="text" name="Nombre" id="Nombre" value=""></th>
 			</tr>
 			<tr>
-				<th colspan="1">Descripcion:</th>
-				<th colspan="3"><input type="text" name="Descripcion" id="Descripcion" value=""></th>
+				<th >Descripcion:</th>
+				<th ><input type="text" name="Descripcion" id="Descripcion" value=""></th>
 			</tr>
 			<tr>
-				<th colspan="1">Stock:</th>
-				<th colspan="1"><input type="number" name="Stock" id="Stock" value="1" min="1"></th>
-			
-				<th colspan="1" class="precio"> Precio:</th>
-				<th colspan="1"><input type="number" name="Precio" id="Precio"  value="1" min="1"></th>
+				<th>Stock:</th>
+				<th><input type="number" name="Stock" id="Stock" value="1" min="1"></th>
 			</tr>
 			<tr>
-				<th colspan="1">Imagen: </th>
-				<th colspan="3"><input type="file" name="image" id="image"></th>
+				<th class="precio"> Precio:</th>
+				<th ><input type="number" name="Precio" id="Precio"  value="1" min="1"></th>
 			</tr>
 			<tr>
-				<th colspan="1">Tipo:</th>
-				<th colspan="3">
+				<th >Imagen: </th>
+				<th ><input type="file" name="image" id="image"></th>
+			</tr>
+			<tr>
+				<th >Tipo:</th>
+				<th >
 					<select name="Tipo" id="Tipo">
 						<option value="1">Blusa</option>
 						<option value="2">Vestido</option>

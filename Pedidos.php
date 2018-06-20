@@ -1,9 +1,20 @@
 <?php include "barra.php"; include("Conexion.php"); ?>
 
-<?php
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/carrito.css">
+</head>
+<body>
+	<?php
 	$consulta1=mysqli_query($conexion, "select * from pedidos order by id_pedido desc");
 
-	echo '<table>
+	echo '<br><br><table>
+
+          		<thead>
           		<tr>
             <td class="cinta">Pedido</td>
             <td class="cinta">Fecha solicitud</td>
@@ -11,6 +22,7 @@
             <td class="cinta">Estado</td>
             <td class="cinta">Confirmar entrega</td>
           </tr>
+          </thead>
           ';
 
 	while ($result1 = mysqli_fetch_array($consulta1)) {
@@ -43,14 +55,5 @@
 	}
 	echo "</table>";
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="css/carrito.css">
-</head>
-<body>
-
 </body>
 </html>

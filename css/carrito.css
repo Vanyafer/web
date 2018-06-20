@@ -1,40 +1,4 @@
-*{
-	margin:0;
-	padding: 0;
-}
-.lista{
-	text-align: center;
-}
-table{
-	width: 90%;
-	margin: 20px 20px 20px 20px ;
-	border-radius: 5px 5px 0px 0px; 
-}
-table, th, td {
-   border: 1px solid black;
-   text-align: center;
-}
-th{
-	padding: 5px;
-}
-.cinta{
-	background-color:#92278f;
-	color: white;
-}
 
-.izq{
-	width: 70%;
-	text-align: center;
-}
-
-.der{
-	width: 15%;
-	text-align: center;
-}
-td{
-    padding: 5px;
-}
-----------------------------------
 *{
   margin: 0;
   padding: 0;

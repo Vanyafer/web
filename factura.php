@@ -1,6 +1,5 @@
 <?php
-session_start();
-include 'connect.php';
+include 'Conexion.php';
 require('fpdf/fpdf.php');
 
 function burbuja($array)
@@ -10,31 +9,17 @@ function burbuja($array)
     for($i=1;$i<count($array);$i++)
 
     {
-
         for($j=0;$j<count($array)-$i;$j++)
-
         {
-
             if($array[$j]>$array[$j+1])
-
             {
-
                 $k=$array[$j+1];
-
                 $array[$j+1]=$array[$j];
-
                 $array[$j]=$k;
-
             }
-
         }
-
     }
-
- 
-
     return $array;
-
 }
 class PDF extends FPDF
 {
@@ -42,7 +27,7 @@ class PDF extends FPDF
    function Header()
    {
     //Logo
-    $this->Image("imgs/logo.jpg" , 10 ,8, 35 , 38 , "JPG" ,"http://www.mipagina.com");
+    $this->Image("./img/nombre.jpg" , 10 ,8, 35 , 38 , "JPG" ,"http://www.mipagina.com");
     //Arial bold 15
     $this->SetFont('Arial','B',15);
     //Movernos a la derecha
@@ -107,7 +92,7 @@ class PDF extends FPDF
 
 $pdf=new PDF();
 //Títulos de las columnas
-$header=array('Cantidad','Producto','Marca','Precio');
+$header=array('Cantidad','Producto','Precio');
 $pdf->AliasNbPages();
 //Primera página
 $pdf->AddPage();
@@ -119,12 +104,6 @@ $pdf->SetY(65);
 
 
 
-if(!isset($_SESSION["ticket"]))
-{
-    header("Location: index.php");
-}
-
-
 ?>
 
 
@@ -134,16 +113,8 @@ if(!isset($_SESSION["ticket"]))
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>NE PATRIOTS STORE</title>
-	<link rel="icon" type="image/png" href="imgs/Shield.png" />
-	<LINK rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<LINK rel="stylesheet" type="text/css" href="css/encabezado.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="resources/fontawesome-free-5.0.13/svg-with-js/js/fontawesome-all.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/login_style.css">
-	<link rel="stylesheet" type="text/css" href="resources/GlyphIcons/style.css">
+	<title>MoooCouture</title>
+	=
 	<style type="text/css">
 		body
 {
@@ -173,7 +144,7 @@ if(!isset($_SESSION["ticket"]))
 	}
 	else if(isset($_SESSION['usuario']))
 	{
-		include 'barra_usuario.php';
+		include 'barra.php';
 	}
     else
     {
@@ -186,7 +157,6 @@ if(!isset($_SESSION["ticket"]))
 	
 	<div class="container">
 	<div class="panel panel-primary" width="100%" height="100%">
-	<div class="panel-heading"><h1><strong>TICKET </strong></h1></div>
 	
 		<div class="table-responsive">
 			<table class="table">
@@ -198,7 +168,7 @@ if(!isset($_SESSION["ticket"]))
 					<th style="text-align: center;"><h2><b>Imagen</b></h2></th>
 				</tr>
 				<?php
-                $sql_venta="SELECT * FROM ventas,usuario,direcciones,tarjetas WHERE ticket=".$_SESSION["ticket"]." AND usuario.usuario=ventas.usuario AND direcciones.id_dir=ventas.direccion AND tarjetas.usuario=usuario.usuario";
+                $sql_venta="SELECT * FROM pedido,usuario WHERE pediodo.id_usuario = usuario.id_usuario and pediodo.id_pedido = ";
 				$ver_venta=mysqli_query($connect,$sql_venta);
 				//echo $sql_venta;
                 if(mysqli_num_rows($ver_venta)==1)
@@ -218,35 +188,24 @@ if(!isset($_SESSION["ticket"]))
 					$factura=$xml->createElement('factura');
 					$factura=$xml->appendChild($factura);
 
-					$fact="SELECT * FROM facturacion,direcciones WHERE direcciones.id_dir=facturacion.direccion AND facturacion.usuario='".$_SESSION["usuario"]."'";
-					//echo $fact;
-					$sql_fact=mysqli_query($connect,$fact);
-					$datos_fact=mysqli_fetch_assoc($sql_fact);
 
 					$pdf->titulos("Factura #".$_SESSION["ticket"]);
 					$pdf->Ln();
-					$pdf->datos("Nombres: ",$venta["nombres"]);
-					$pdf->datos("Apellidos: ",$venta["ap_paterno"]." ".$venta["ap_materno"]);
-					$pdf->datos("RFC: ",$datos_fact["rfc"]);
-					$pdf->datos("Razón Social: ",$datos_fact["razon_social"]);
-					if ($datos_fact["tipo"]=="F") {
-						$pdf->datos("Persona: ","Física");
-					}
-					elseif ($datos_fact["tipo"]=="M") {
-						$pdf->datos("Persona: ","Moral");
-					}
+					$pdf->datos("Nombres: ",$venta["nombre"]);
+					$pdf->datos("Apellidos: ",$venta["apellidop"]." ".$venta["apellidom"]);
+					
 					$pdf->Ln();
 					$pdf->titulos("Dirección");
-					$pdf->datos("Calle: ",$datos_fact["calle"]);
-					$pdf->datos("# Exterior: ",$datos_fact["n_ext"]);
-					$pdf->datos("# Interior: ",$datos_fact["n_int"]);
-					$pdf->datos("Colonia: ",$datos_fact["colonia"]);
-					$pdf->datos("Ciudad: ",$datos_fact["ciudad"]);
-					$pdf->datos("Estado: ",$datos_fact["estado"]);
-					$pdf->datos("C.P. ",$datos_fact["cp"]);
+					$pdf->datos("Calle: ",$venta["calle"]);
+					$pdf->datos("# Exterior: ",$venta["numext"]);
+					$pdf->datos("# Interior: ",$venta["numint"]);
+					$pdf->datos("Colonia: ",$venta["colonia"]);
+					$pdf->datos("Ciudad: ",$venta["ciudad"]);
+					$pdf->datos("Estado: ",$venta["estado"]);
+					$pdf->datos("C.P. ",$venta["cp"]);
 					$pdf->Ln();
-					$pdf->titulos("Ticket #".$_SESSION["ticket"]);
-					$pdf->datos("Cantidad Articulos Vendidos: ",$venta["art"]);
+					$pdf->titulos("Ticket #".$_SESSION["ticket"]);// guardar id de pedido
+					$pdf->datos("Cantidad Articulos Vendidos: ",$venta["cantidad"]);
 					$pdf->datos("Total: $",number_format($venta["total"]));
 					$pdf->AliasNbPages();
 					//Primera página
@@ -263,41 +222,41 @@ if(!isset($_SESSION["ticket"]))
 					$apellidos=$xml->createElement('apellidos',$venta["ap_paterno"]." ".$venta["ap_materno"]);
 					$apellidos=$factura->appendChild($apellidos);
 
-					$rfc=$xml->createElement('rfc',$datos_fact["rfc"]);
+					$rfc=$xml->createElement('rfc',$venta["rfc"]);
 					$rfc=$factura->appendChild($rfc);	
 
 					$direccion=$xml->createElement('direccion');
 					$direccion=$factura->appendChild($direccion);
 
-					$calle=$xml->createElement('calle',$datos_fact["calle"]);
+					$calle=$xml->createElement('calle',$venta["calle"]);
 					$calle=$direccion->appendChild($calle);
 
-					$ext=$xml->createElement('exterior',$datos_fact["n_ext"]);
+					$ext=$xml->createElement('exterior',$venta["n_ext"]);
 					$ext=$direccion->appendChild($ext);
 
-					$int=$xml->createElement('interior',$datos_fact["n_int"]);
+					$int=$xml->createElement('interior',$venta["n_int"]);
 					$int=$direccion->appendChild($int);
 
-					$colonia=$xml->createElement('colonia',$datos_fact["colonia"]);
+					$colonia=$xml->createElement('colonia',$venta["colonia"]);
 					$colonia=$direccion->appendChild($ext);
 
-					$ciudad=$xml->createElement('ciudad',$datos_fact["ciudad"]);
+					$ciudad=$xml->createElement('ciudad',$venta["ciudad"]);
 					$ciudad=$direccion->appendChild($ciudad);
 
-					$estado=$xml->createElement('estado',$datos_fact["estado"]);
+					$estado=$xml->createElement('estado',$venta["estado"]);
 					$estado=$direccion->appendChild($estado);
 
-					$cp=$xml->createElement('cp',$datos_fact["cp"]);
+					$cp=$xml->createElement('cp',$venta["cp"]);
 					$cp=$direccion->appendChild($cp);
 					
-					$razon=$xml->createElement('razon_social',$datos_fact["razon_social"]);
+					$razon=$xml->createElement('razon_social',$venta["razon_social"]);
 					$razon=$factura->appendChild($razon);
 
-					if ($datos_fact["tipo"]=="F") {
+					if ($venta["tipo"]=="F") {
 						$persona=$xml->createElement('persona',"fisica");
 						$persona=$factura->appendChild($persona);
 					}
-					elseif ($datos_fact["tipo"]=="M") {
+					elseif ($venta["tipo"]=="M") {
 						$persona=$xml->createElement('persona',"moral");
 						$persona=$factura->appendChild($persona);
 					}
@@ -420,7 +379,6 @@ if(!isset($_SESSION["ticket"]))
 		//echo htmlentities($el_xml);
 		}
 		?>
-<div align="center"><a href="destruir_venta.php"><button class="btn btn-lg btn-success" ><i class="fas fa-check-circle"></i> TERMINAR</button></a></div>
 
 		
 		</div>
